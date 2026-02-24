@@ -4,32 +4,38 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Ventana extends JFrame{
 	public Ventana() {
 		 this.setVisible(true);
-		 this.setSize(500,500);
-		 this.setLayout(null);
+		 this.setSize(1200,600);
 		 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 this.setLocationRelativeTo(null);
 		 this.setTitle("Sup Bro");
 		 this.setMinimumSize(new Dimension(200,200));
 		 this.setMaximumSize(new Dimension(800,800));
 		 this.setBackground(Color.black);
+		 this.setLayout(null);
 		 
+		 //Contenedor login
 		 JPanel contenedor = new JPanel();
 		 contenedor.setOpaque(true);
 		 contenedor.setBackground(Color.white);
 		 contenedor.setSize(500,500);
 		 contenedor.setLayout(null);
-		 contenedor.setLocation(0,0);
+		 contenedor.setLocation(0,50);
 		 contenedor.setVisible(true);
 		 this.add(contenedor);
 		 
@@ -37,7 +43,7 @@ public class Ventana extends JFrame{
 		 title_login.setText("¡¡¡Bienvenido!!!");
 		 title_login.setSize(500,30);
 		 title_login.setOpaque(true);
-		 title_login.setLocation(0,0);
+		 title_login.setLocation(0,50);
 		 title_login.setBackground(Color.BLACK);
 		 title_login.setFont(new Font("Arial",Font.BOLD,22));
 		 title_login.setForeground(Color.WHITE);
@@ -108,5 +114,61 @@ public class Ventana extends JFrame{
 		 contenedor.repaint();
 		 contenedor.revalidate();
 		 
+		 //Contenedor registro
+		 JPanel register_container = new JPanel();
+		 register_container.setSize(500,500);
+		 register_container.setLocation(650, 50);
+		 register_container.setOpaque(true);
+		 register_container.setBackground(Color.decode("#FFFFFF"));
+		 register_container.setLayout(null);
+		 this.add(register_container);
+		 
+		 JLabel bio_tag = new JLabel("Biografía");
+		 bio_tag.setBounds(120,100,250,40);
+		 bio_tag.setBackground(Color.black);
+		 bio_tag.setOpaque(true);
+		 bio_tag.setHorizontalAlignment(JLabel.CENTER);
+		 bio_tag.setFont(new Font("Arial",Font.BOLD,22));
+		 bio_tag.setForeground(Color.white);
+		 register_container.add(bio_tag);
+		 
+		 JTextArea bio_text = new JTextArea();
+		 bio_text.setBounds(120,160,250,120);
+		 bio_text.setBackground(Color.gray);
+		 register_container.add(bio_text);
+		 
+		 JCheckBox sweet_option = new JCheckBox("Dulce");
+		 sweet_option.setBounds(120,330,100,50);
+		 register_container.add(sweet_option);
+		
+		 
+		 JCheckBox salty_option = new JCheckBox("Salado");
+		 salty_option.setBounds(220,330,100,50);
+		 register_container.add(salty_option);
+		 
+		 JCheckBox healthy_option = new JCheckBox("Saludable");
+		 healthy_option.setBounds(320,330,100,50);
+		 healthy_option.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
+		 healthy_option.setBorderPainted(true);
+		 register_container.add(healthy_option);
+		 
+		 JRadioButton acceptance_terms = new JRadioButton("Acepto los terminos");
+		 acceptance_terms.setBounds(120, 400, 150, 50);
+		 register_container.add(acceptance_terms);
+		 
+		 JRadioButton reject_terms = new JRadioButton("Rechazo los terminos");
+		 reject_terms.setBounds(290, 400, 150, 50);
+		 register_container.add(reject_terms);
+		 
+		 ButtonGroup terms = new ButtonGroup();
+		 terms.add(reject_terms);
+		 terms.add(acceptance_terms);
+		 
+		 String[] colonias = {"Camino York", "La fuente", "villas del encanto"};
+		 JComboBox list = new JComboBox(colonias);
+		 list.setBounds(50, 20, 200, 60);
+		 register_container.add(list);
+		 
+		 register_container.repaint();
 	}
 }
