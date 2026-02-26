@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -27,10 +29,12 @@ public class Ventana extends JFrame{
 		 this.setMinimumSize(new Dimension(200,200));
 		 this.setMaximumSize(new Dimension(800,800));
 		 this.setBackground(Color.black);
+		 this.getContentPane().setBackground(Color.gray);
 		 this.setLayout(null);
 		 
-		this.login();
-		 this.registro();
+		//this.login();
+		//this.registro();
+		 this.users();
 		
 	}
 	
@@ -224,6 +228,62 @@ public class Ventana extends JFrame{
 	}
 	
 	public void users() {
+		JPanel users = new JPanel();
+		users.setSize(1000,500);
+		users.setLocation(100, 50);
+		users.setBackground(Color.white);
+		users.setLayout(null);
+		this.add(users);
 		
+		JLabel user_title = new JLabel("USERS");
+		user_title.setBounds(400, 50, 100,40);
+		user_title.setHorizontalAlignment(JLabel.CENTER);
+		user_title.setFont(new Font("Arial",Font.BOLD,22));
+		user_title.setOpaque(true);
+		user_title.setBackground(Color.cyan);
+		users.add(user_title);
+		
+		JButton export = new JButton("Exportar");
+		export.setBounds(30,120,100,40);
+		users.add(export);
+		
+		JButton add = new JButton("Añadir");
+		add.setBounds(130,120,100,40);
+		users.add(add);
+		
+		Object [] table_head = {"No. control","Nombre","Apellidos","Semestre","Promedio","Acciones"};
+		
+		Object [][] table_content = {
+				{"No. control","Nombre","Apellidos","Semestre","Promedio","Acciones"},
+				{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+				{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+				{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+				{"20040331", "Mariana", "Hernández Díaz", "8", "92.4", "Editar"},
+				{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+				{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+				{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+				{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+				{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+				{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+				{"20040331", "Mariana", "Hernández Díaz", "8", "92.4", "Editar"},
+				{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+				{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+				{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+				{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+				{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+				{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+				{"20040331", "Mariana", "Hernández Díaz", "8", "92.4", "Editar"},
+				{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+				{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+				{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+				{"20040331", "Mariana", "Hernández Díaz", "8", "92.4", "Editar"}
+		};
+		
+		JTable users_table = new JTable(table_content,table_head);
+		JScrollPane scrollPane = new JScrollPane(users_table);
+		scrollPane.setLocation(30, 180);
+		scrollPane.setSize(800,200);
+		//users_table.setBorder(BorderFactory.createLineBorder(Color.black));
+		users.add(scrollPane);
 	}
 }
