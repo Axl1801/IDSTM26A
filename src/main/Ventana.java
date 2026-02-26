@@ -23,19 +23,25 @@ public class Ventana extends JFrame{
 		 this.setSize(1200,600);
 		 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 this.setLocationRelativeTo(null);
-		 this.setTitle("Sup Bro");
+		 this.setTitle("Login");
 		 this.setMinimumSize(new Dimension(200,200));
 		 this.setMaximumSize(new Dimension(800,800));
 		 this.setBackground(Color.black);
 		 this.setLayout(null);
 		 
+		this.login();
+		 this.registro();
+		
+	}
+	
+	public void login() {
 		 //Contenedor login
 		 JPanel contenedor = new JPanel();
 		 contenedor.setOpaque(true);
 		 contenedor.setBackground(Color.white);
 		 contenedor.setSize(500,500);
 		 contenedor.setLayout(null);
-		 contenedor.setLocation(0,50);
+		 contenedor.setLocation(10,25);
 		 contenedor.setVisible(true);
 		 this.add(contenedor);
 		 
@@ -58,6 +64,7 @@ public class Ventana extends JFrame{
 		 title_username.setBackground(Color.white);
 		 title_username.setFont(new Font("Arial",Font.BOLD,12));
 		 title_username.setHorizontalAlignment(JLabel.CENTER);
+		 //title_username.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
 		 contenedor.add(title_username);
 		 
 		 JTextField username = new JTextField();
@@ -113,11 +120,13 @@ public class Ventana extends JFrame{
 		 
 		 contenedor.repaint();
 		 contenedor.revalidate();
-		 
+	}
+	
+	public void registro() {
 		 //Contenedor registro
 		 JPanel register_container = new JPanel();
 		 register_container.setSize(500,500);
-		 register_container.setLocation(650, 50);
+		 register_container.setLocation(650, 25);
 		 register_container.setOpaque(true);
 		 register_container.setBackground(Color.decode("#FFFFFF"));
 		 register_container.setLayout(null);
@@ -136,6 +145,7 @@ public class Ventana extends JFrame{
 		 reg_user.setBounds(0, 45, 500, 70);
 		 reg_user.setHorizontalAlignment(JLabel.CENTER);
 		 reg_user.setFont(new Font("Arial",Font.BOLD, 15));
+		 //reg_user.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
 		 register_container.add(reg_user);
 		 
 		 JTextField reg_username = new JTextField();
@@ -211,5 +221,9 @@ public class Ventana extends JFrame{
 		 register_container.add(reg_crear);
 		 
 		 register_container.repaint();
+	}
+	
+	public void users() {
+		
 	}
 }
