@@ -43,7 +43,7 @@ public class Ventana extends JFrame{
 		 title_login.setText("¡¡¡Bienvenido!!!");
 		 title_login.setSize(500,30);
 		 title_login.setOpaque(true);
-		 title_login.setLocation(0,50);
+		 title_login.setLocation(0,30);
 		 title_login.setBackground(Color.BLACK);
 		 title_login.setFont(new Font("Arial",Font.BOLD,22));
 		 title_login.setForeground(Color.WHITE);
@@ -123,8 +123,8 @@ public class Ventana extends JFrame{
 		 register_container.setLayout(null);
 		 this.add(register_container);
 		 
-		 JLabel bio_tag = new JLabel("Biografía");
-		 bio_tag.setBounds(120,100,250,40);
+		 JLabel bio_tag = new JLabel("---Registro---");
+		 bio_tag.setBounds(0,30,500,30);
 		 bio_tag.setBackground(Color.black);
 		 bio_tag.setOpaque(true);
 		 bio_tag.setHorizontalAlignment(JLabel.CENTER);
@@ -132,42 +132,83 @@ public class Ventana extends JFrame{
 		 bio_tag.setForeground(Color.white);
 		 register_container.add(bio_tag);
 		 
+		 JLabel reg_user = new JLabel("Nombre de usuario");
+		 reg_user.setBounds(0, 45, 500, 70);
+		 reg_user.setHorizontalAlignment(JLabel.CENTER);
+		 reg_user.setFont(new Font("Arial",Font.BOLD, 15));
+		 register_container.add(reg_user);
+		 
+		 JTextField reg_username = new JTextField();
+		 reg_username.setSize(300,30);
+		 reg_username.setLocation(100,90);
+		 reg_username.setFont(new Font("Arial",Font.BOLD,15));
+		 register_container.add(reg_username);
+		 
+		 JLabel reg_bio = new JLabel("Biografia");
+		 reg_bio.setBounds(0, 100, 500, 60);
+		 reg_bio.setHorizontalAlignment(JLabel.CENTER);
+		 reg_bio.setFont(new Font("Arial",Font.BOLD, 15));
+		 register_container.add(reg_bio);
+		 
 		 JTextArea bio_text = new JTextArea();
-		 bio_text.setBounds(120,160,250,120);
-		 bio_text.setBackground(Color.gray);
+		 bio_text.setBounds(100,140,300,120);
+		 bio_text.setBackground(Color.decode("#D9D9D9"));
 		 register_container.add(bio_text);
 		 
+		 JLabel reg_pref = new JLabel("Preferencias");
+		 reg_pref.setBounds(0, 260, 500, 30);
+		 reg_pref.setHorizontalAlignment(JLabel.CENTER);
+		 reg_pref.setFont(new Font("Arial",Font.BOLD, 15));
+		 register_container.add(reg_pref);
+		 
 		 JCheckBox sweet_option = new JCheckBox("Dulce");
-		 sweet_option.setBounds(120,330,100,50);
+		 sweet_option.setBounds(100,285,100,40);
 		 register_container.add(sweet_option);
 		
 		 
 		 JCheckBox salty_option = new JCheckBox("Salado");
-		 salty_option.setBounds(220,330,100,50);
+		 salty_option.setBounds(200,285,100,40);
 		 register_container.add(salty_option);
 		 
 		 JCheckBox healthy_option = new JCheckBox("Saludable");
-		 healthy_option.setBounds(320,330,100,50);
-		 healthy_option.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
-		 healthy_option.setBorderPainted(true);
+		 healthy_option.setBounds(300,285,100,40);
+		 //healthy_option.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
+		 //healthy_option.setBorderPainted(true);
 		 register_container.add(healthy_option);
 		 
+		 JLabel reg_terms = new JLabel("TERMINOS Y CONDICIONES");
+		 reg_terms.setBounds(100, 330, 300, 30);
+		 reg_terms.setBackground(Color.black);
+		 reg_terms.setOpaque(true);
+		 reg_terms.setForeground(Color.white);
+		 reg_terms.setHorizontalAlignment(JLabel.CENTER);
+		 reg_terms.setFont(new Font("Arial",Font.BOLD, 15));
+		 
+		 register_container.add(reg_terms);
+		 
 		 JRadioButton acceptance_terms = new JRadioButton("Acepto los terminos");
-		 acceptance_terms.setBounds(120, 400, 150, 50);
+		 acceptance_terms.setBounds(100, 365, 150,30);
 		 register_container.add(acceptance_terms);
 		 
 		 JRadioButton reject_terms = new JRadioButton("Rechazo los terminos");
-		 reject_terms.setBounds(290, 400, 150, 50);
+		 reject_terms.setBounds(250, 365, 150, 30);
 		 register_container.add(reject_terms);
 		 
 		 ButtonGroup terms = new ButtonGroup();
 		 terms.add(reject_terms);
 		 terms.add(acceptance_terms);
 		 
-		 String[] colonias = {"Camino York", "La fuente", "villas del encanto"};
+		 String[] colonias = {"Elija su localidad", "Camino York", "La fuente", "villas del encanto", "Cihuatan"};
 		 JComboBox list = new JComboBox(colonias);
-		 list.setBounds(50, 20, 200, 60);
+		 list.setBounds(120, 400, 250, 30);
 		 register_container.add(list);
+		 
+		 JButton reg_crear = new JButton();
+		 reg_crear.setText("Crear cuenta");
+		 reg_crear.setLocation(175, 435);
+		 reg_crear.setSize(150,50);
+		 reg_crear.setFont(new Font("Arial",Font.BOLD,18));
+		 register_container.add(reg_crear);
 		 
 		 register_container.repaint();
 	}
