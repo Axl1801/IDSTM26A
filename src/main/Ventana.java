@@ -6,6 +6,7 @@ import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -24,7 +25,7 @@ import javax.swing.JTextField;
 
 public class Ventana extends JFrame{
 	public Ventana() {
-		 this.setSize(1200,600);
+		 this.setSize(1200,800);
 		 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 this.setLocationRelativeTo(null);
 		 this.setTitle("Login");
@@ -62,9 +63,9 @@ public class Ventana extends JFrame{
 		 
 		 
 		 
-		 this.setJMenuBar(barra);
+		 //this.setJMenuBar(barra);
 		 
-		//this.login();
+		this.login();
 		//this.registro();
 		//this.users();
 		 this.setVisible(true);
@@ -76,20 +77,20 @@ public class Ventana extends JFrame{
 		 JPanel contenedor = new JPanel();
 		 contenedor.setOpaque(true);
 		 contenedor.setBackground(Color.white);
-		 contenedor.setSize(500,500);
+		 contenedor.setSize(1000,600);
 		 contenedor.setLayout(null);
-		 contenedor.setLocation(10,25);
+		 contenedor.setLocation(100,100);
 		 contenedor.setVisible(true);
 		 this.add(contenedor);
 		 
 		 JLabel title_login = new JLabel();
-		 title_login.setText("¡¡¡Bienvenido!!!");
-		 title_login.setSize(500,30);
+		 title_login.setText("Bienvenido");
+		 title_login.setSize(400,30);
 		 title_login.setOpaque(true);
-		 title_login.setLocation(0,30);
-		 title_login.setBackground(Color.BLACK);
-		 title_login.setFont(new Font("Arial",Font.BOLD,22));
-		 title_login.setForeground(Color.WHITE);
+		 title_login.setLocation(300,110);
+		 title_login.setBackground(Color.decode("#FAFAFA"));
+		 title_login.setFont(new Font("Arial cursiva",Font.BOLD,25));
+		 title_login.setForeground(Color.black);
 		 title_login.setHorizontalAlignment(JLabel.CENTER);
 		 contenedor.add(title_login);
 		 
@@ -97,8 +98,8 @@ public class Ventana extends JFrame{
 		 title_username.setText("Usuario");
 		 title_username.setSize(50,10);
 		 title_username.setOpaque(true);
-		 title_username.setLocation(100,115);
-		 title_username.setBackground(Color.white);
+		 title_username.setLocation(350,200);
+		 title_username.setBackground(Color.decode("#FAFAFA"));
 		 title_username.setFont(new Font("Arial",Font.BOLD,12));
 		 title_username.setHorizontalAlignment(JLabel.CENTER);
 		 //title_username.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
@@ -106,7 +107,7 @@ public class Ventana extends JFrame{
 		 
 		 JTextField username = new JTextField();
 		 username.setSize(300,30);
-		 username.setLocation(100,130);
+		 username.setLocation(350,215);
 		 username.setFont(new Font("Arial",Font.BOLD,22));
 		 contenedor.add(username);
 		 
@@ -114,8 +115,8 @@ public class Ventana extends JFrame{
 		 title_password.setText("Contraseña");
 		 title_password.setSize(80,10);
 		 title_password.setOpaque(true);
-		 title_password.setLocation(100,180);
-		 title_password.setBackground(Color.white);
+		 title_password.setLocation(345,265);
+		 title_password.setBackground(Color.decode("#FAFAFA"));
 		 title_password.setFont(new Font("Arial",Font.BOLD,12));
 		 title_password.setHorizontalAlignment(JLabel.CENTER);
 		 contenedor.add(title_password);
@@ -123,7 +124,7 @@ public class Ventana extends JFrame{
 		 
 		 JPasswordField password = new JPasswordField();
 		 password.setSize(300,30);
-		 password.setLocation(100, 195);
+		 password.setLocation(350, 280);
 		 password.setFont(new Font("Arial",Font.BOLD,22));
 		 contenedor.add(password);
 		 
@@ -131,8 +132,8 @@ public class Ventana extends JFrame{
 		 title_ForgotPassword.setText("¿Has olvidado tu contraseña?");
 		 title_ForgotPassword.setSize(180,15);
 		 title_ForgotPassword.setOpaque(true);
-		 title_ForgotPassword.setLocation(220,230);
-		 title_ForgotPassword.setBackground(Color.white);
+		 title_ForgotPassword.setLocation(345,315);
+		 title_ForgotPassword.setBackground(Color.decode("#FAFAFA"));
 		 title_ForgotPassword.setFont(new Font("Arial",Font.BOLD,12));
 		 title_ForgotPassword.setForeground(Color.blue);
 		 title_ForgotPassword.setHorizontalAlignment(JLabel.CENTER);
@@ -141,19 +142,38 @@ public class Ventana extends JFrame{
 		 JCheckBox remember = new JCheckBox();
 		 remember.setSize(120,15);
 		 remember.setText("Recordarme");
-		 remember.setBackground(Color.white);
+		 remember.setBackground(Color.decode("#FAFAFA"));
 		 remember.setOpaque(true);
-		 remember.setLocation(100, 230);
+		 remember.setLocation(555, 315);
 		 remember.setFont(new Font("Arial",Font.BOLD,12));
 		 //remember.setHorizontalTextPosition(JLabel.CENTER);
 		 contenedor.add(remember);
 		 
 		 JButton acceder = new JButton();
 		 acceder.setText("Acceder");
-		 acceder.setLocation(190, 350);
+		 acceder.setBackground(Color.black);
+		 acceder.setForeground(Color.white);
+		 acceder.setLocation(440, 400);
 		 acceder.setSize(120,50);
 		 acceder.setFont(new Font("Arial",Font.BOLD,18));
+		 acceder.setFocusPainted(false);
 		 contenedor.add(acceder);
+		 
+		 JLabel fondoImagen = new JLabel();
+		 fondoImagen.setBounds(300,50,400,450);
+		 fondoImagen.setOpaque(true);
+		 fondoImagen.setBackground(Color.decode("#FAFAFA"));
+		 contenedor.add(fondoImagen);
+		 
+		 ImageIcon imagenFondo = new ImageIcon("fondo.JPG");
+		 JLabel imagen1 = new JLabel(imagenFondo);
+		 imagen1.setBounds(0, 0, 1000, 600);
+		 imagen1.setOpaque(true);
+		 contenedor.add(imagen1);
+		 
+		 ImageIcon imagenBienvenido = new ImageIcon("Bienvenido.JPG");
+		 JLabel imagen2 = new JLabel(imagenBienvenido);
+		 imagen2.setBounds(0,0,0,0);
 		 
 		 contenedor.repaint();
 		 contenedor.revalidate();
