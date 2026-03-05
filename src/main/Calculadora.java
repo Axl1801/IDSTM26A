@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Calculadora extends JFrame{
 	public Calculadora() {
@@ -25,7 +26,7 @@ public class Calculadora extends JFrame{
 		 
 		 //Invocar la ventana de la calculadora
 		 //this.calculadoraUno();
-		 this.calculadoraDos();
+		 this.calculadoraIntereses();
 
 		 this.setVisible(true);
 	}
@@ -406,5 +407,122 @@ public class Calculadora extends JFrame{
 		test_panel.add(south_panel,BorderLayout.SOUTH);
 	}
 	
+	public void calculadoraIntereses() {
+		//Panel Principal
+		JPanel panel = new JPanel();
+		panel.setSize(400, 600);
+		panel.setLocation(0, 0);
+		panel.setBackground(Color.white);
+		panel.setLayout(new BorderLayout(0,0));
+		panel.setVisible(true);
+		this.add(panel);
+		
+		//Etiqueta de interes al NORTH
+		JLabel users_title = new JLabel("Interés"); 
+		users_title.setFont(new Font("Arial",Font.BOLD,30));
+		users_title.setForeground(Color.red);
+		users_title.setHorizontalAlignment(JLabel.LEFT);
+		users_title.setPreferredSize(new Dimension(100, 30));
+		panel.add(users_title,BorderLayout.NORTH);
+		
+		//Panel central para el calculo de intereses
+		JPanel calInteres = new JPanel();
+		calInteres.setSize(100,100);
+		calInteres.setLocation(0,0);
+		calInteres.setBackground(Color.green);
+		calInteres.setLayout(new GridLayout(4,2));
+		calInteres.setVisible(true);
+		
+		JLabel capital = new JLabel("Capital");
+		capital.setSize(30,5);
+		capital.setBackground(Color.white);
+		capital.setForeground(Color.black);
+		calInteres.add(capital);
+		
+		JTextField txtCap = new JTextField();
+		txtCap.setSize(30,5);
+		txtCap.setBackground(Color.white);
+		txtCap.setForeground(Color.black);
+		calInteres.add(txtCap);
+		
+		JLabel tiempo = new JLabel("Tiempo");
+		capital.setSize(30,5);
+		capital.setBackground(Color.white);
+		capital.setForeground(Color.black);
+		calInteres.add(tiempo);
+		
+		JTextField txtTiempo = new JTextField();
+		txtCap.setSize(30,5);
+		txtCap.setBackground(Color.white);
+		txtCap.setForeground(Color.black);
+		calInteres.add(txtTiempo);
+		
+		JLabel TasaInteres = new JLabel("Capital");
+		capital.setSize(30,5);
+		capital.setBackground(Color.white);
+		capital.setForeground(Color.black);
+		calInteres.add(TasaInteres);
+		
+		JTextField txtTI = new JTextField();
+		txtCap.setSize(30,5);
+		txtCap.setBackground(Color.white);
+		txtCap.setForeground(Color.black);
+		calInteres.add(txtTI);
+		
+		JButton calcular = new JButton("Calcular");
+		calcular.setSize(20,10);
+		calcular.setBackground(Color.black);
+		calcular.setForeground(Color.white);
+		calcular.setHorizontalAlignment(JLabel.CENTER);
+		calInteres.add(calcular);
+		
+		JButton cancelar = new JButton("Cancelar");
+		cancelar.setSize(20,10);
+		cancelar.setBackground(Color.black);
+		cancelar.setForeground(Color.white);
+		cancelar.setHorizontalAlignment(JLabel.CENTER);
+		calInteres.add(cancelar);
+		calInteres.setPreferredSize(new Dimension(100,100));
+		
+		panel.add(calInteres,BorderLayout.CENTER);
+		
+		//Panel South Donde se muestran los resultados
+		
+		JPanel result = new JPanel();
+		result.setSize(400,200);
+		result.setLocation(0, 0);
+		result.setBackground(Color.white);
+		result.setLayout(new BorderLayout(2,2));
+		result.setVisible(true);
+		panel.add(result,BorderLayout.SOUTH);
+		
+		JLabel resInt = new JLabel("Intereses: ");
+		resInt.setSize(30,5);
+		resInt.setBackground(Color.white);
+		resInt.setForeground(Color.black);
+		result.add(resInt);
+		
+		JTextField txtResInt = new JTextField();
+		txtResInt.setSize(30,20);
+		txtResInt.setBackground(Color.white);
+		txtResInt.setForeground(Color.black);
+		result.add(txtResInt);
+		
+		JLabel resMonto = new JLabel("Monto: ");
+		resMonto.setSize(30,5);
+		resMonto.setBackground(Color.white);
+		resMonto.setForeground(Color.black);
+		result.add(resMonto);
+		
+		JTextField txtResMont = new JTextField();
+		txtCap.setSize(30,20);
+		txtCap.setBackground(Color.white);
+		txtCap.setForeground(Color.black);
+		result.add(txtResMont);
+		
+		
+		
+		
+	}
 	
 }
