@@ -35,6 +35,9 @@ public class Ventana extends JFrame{
 		 this.getContentPane().setBackground(Color.gray);
 		 this.setLayout(null);
 		 
+		 ImageIcon icon = new ImageIcon("IconoVentana2.PNG");
+		 this.setIconImage(icon.getImage());
+		 
 		 JMenuBar barra = new JMenuBar();
 		 
 		 JMenu archivo = new JMenu("Archivo");
@@ -60,9 +63,6 @@ public class Ventana extends JFrame{
 		 subMenu.add(newItem2);
 		 archivo.add(subMenu);
 		 
-		 
-		 
-		 
 		 //this.setJMenuBar(barra);
 		 
 		this.login();
@@ -84,14 +84,10 @@ public class Ventana extends JFrame{
 		 this.add(contenedor);
 		 
 		 JLabel title_login = new JLabel();
-		 title_login.setText("Bienvenido");
-		 title_login.setSize(400,30);
-		 title_login.setOpaque(true);
-		 title_login.setLocation(300,110);
-		 title_login.setBackground(Color.decode("#FAFAFA"));
-		 title_login.setFont(new Font("Arial cursiva",Font.BOLD,25));
-		 title_login.setForeground(Color.black);
-		 title_login.setHorizontalAlignment(JLabel.CENTER);
+		 ImageIcon icon2 = new ImageIcon("IconoLogin2.png");
+		 title_login.setIcon(icon2);
+		 title_login.setLocation(390,50);
+		 title_login.setSize(250,150);
 		 contenedor.add(title_login);
 		 
 		 JLabel title_username = new JLabel();
