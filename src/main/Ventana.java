@@ -1,9 +1,16 @@
 package main;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -69,9 +76,10 @@ public class Ventana extends JFrame{
 		 //this.setJMenuBar(barra);
 		 
 		 //Invocacion de las diferentes pantallas.
-		 this.login();
+		 //this.login();
 		 //this.registro();
 		 //this.users();
+		 this.pintar();
 		 this.setVisible(true);
 		
 	}
@@ -353,5 +361,58 @@ public class Ventana extends JFrame{
 		scrollPane.setSize(800,200);
 		//users_table.setBorder(BorderFactory.createLineBorder(Color.black));
 		users.add(scrollPane);
+	}
+	
+	public void pintar() {
+        JPanel pane = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                //Convertir a Graphics 2
+                Graphics2D g2d = (Graphics2D) g;
+                
+                
+                //g2d.drawLine(0, 0, 100, 100);
+                
+                g2d.setStroke(new BasicStroke(3));
+                g2d.setColor(Color.red);
+                g2d.drawLine(100,100,500,500);
+                
+                g2d.drawRect(250, 250, 100, 100);
+                
+                g2d.setColor(Color.green);
+                g2d.drawOval(100, 100, 150, 100);
+                
+                g2d.drawArc(300, 100, 100, 100, 90, 180);
+                
+                g2d.drawPolygon(new int[] {200,100,300}, new int[] {100,300,500}, 3);
+                
+                g2d.setColor(Color.blue);
+                
+                g2d.fillRect(800, 500, 100, 100);
+                
+                g2d.fillOval(800, 300, 100, 100);
+                
+                g2d.setColor(Color.yellow);
+                g2d.fillArc(600, 100, 100, 100, 30, 300);
+                
+                g2d.fillPolygon(new int[] {200,100,300}, new int[] {100,300,500}, 3);
+                
+                BufferedImage image;
+				try {
+					image = ImageIO.read(new File("src/recursos/imagen.png"));
+					g2d.drawImage(image, 500, 50, null);
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+                
+            }
+        };
+        
+        pane.setSize(1200,800);
+        pane.setLocation(0,0);
+        this.add(pane);
 	}
 }

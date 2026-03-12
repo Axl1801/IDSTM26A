@@ -188,7 +188,7 @@ public class VentanaDos {
 		panel.add(PerfilUsuarios);
 		PerfilUsuarios.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel_8 = new JLabel("Perfil del Usuario");
+		JLabel lblNewLabel_8 = new JLabel("PERFIL DE USUARIO");
 		lblNewLabel_8.setForeground(new Color(255, 255, 255));
 		lblNewLabel_8.setBackground(new Color(33, 37, 41));
 		lblNewLabel_8.setOpaque(true);
@@ -284,7 +284,7 @@ public class VentanaDos {
 		
 		//Botones y sus respectivas configuraciones ademas de sus iconos (No jalo cambiarles el color)
 		JButton BotonNuevo = new JButton("Nuevo");
-		BotonNuevo.setBackground(new Color(108, 117, 125));
+		BotonNuevo.setBackground(new Color(255, 255, 255));
 		BotonNuevo.setFocusPainted(false);
 		BotonNuevo.setIcon(new ImageIcon("C:\\Users\\soyre\\OneDrive\\Escritorio\\P3 JAVA\\IDSTM26A\\IconoNuevo.png"));
 		BotonNuevo.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -292,14 +292,14 @@ public class VentanaDos {
 		
 		JButton BotonGuardar = new JButton("Guardar");
 		BotonGuardar.setFocusPainted(false);
-		BotonGuardar.setBackground(new Color(108, 117, 125));
+		BotonGuardar.setBackground(new Color(255, 255, 255));
 		BotonGuardar.setIcon(new ImageIcon("C:\\Users\\soyre\\OneDrive\\Escritorio\\P3 JAVA\\IDSTM26A\\IconoGuardar.png"));
 		BotonGuardar.setFont(new Font("Arial", Font.PLAIN, 18));
 		Botones.add(BotonGuardar);
 		
 		JButton BotonSalir = new JButton("Salir");
 		BotonSalir.setFocusPainted(false);
-		BotonSalir.setBackground(new Color(108, 117, 125));
+		BotonSalir.setBackground(new Color(255, 255, 255));
 		BotonSalir.setFont(new Font("Arial", Font.PLAIN, 18));
 		BotonSalir.setIcon(new ImageIcon("C:\\Users\\soyre\\OneDrive\\Escritorio\\P3 JAVA\\IDSTM26A\\IconoSalir.png"));
 		Botones.add(BotonSalir);
