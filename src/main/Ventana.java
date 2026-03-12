@@ -25,6 +25,7 @@ import javax.swing.JTextField;
 
 public class Ventana extends JFrame{
 	public Ventana() {
+		//Creacion de ventana y ajuste de sus parametros
 		 this.setSize(1200,800);
 		 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 this.setLocationRelativeTo(null);
@@ -35,9 +36,11 @@ public class Ventana extends JFrame{
 		 this.getContentPane().setBackground(Color.gray);
 		 this.setLayout(null);
 		 
+		 //Cargar Imegen para el icono de la ventana y setearlo
 		 ImageIcon icon = new ImageIcon("IconoVentana2.PNG");
 		 this.setIconImage(icon.getImage());
 		 
+		 //Creacion de barra de opciones y sus opciones dentro de la misma
 		 JMenuBar barra = new JMenuBar();
 		 
 		 JMenu archivo = new JMenu("Archivo");
@@ -65,9 +68,10 @@ public class Ventana extends JFrame{
 		 
 		 //this.setJMenuBar(barra);
 		 
-		this.login();
-		//this.registro();
-		//this.users();
+		 //Invocacion de las diferentes pantallas.
+		 this.login();
+		 //this.registro();
+		 //this.users();
 		 this.setVisible(true);
 		
 	}
@@ -83,6 +87,7 @@ public class Ventana extends JFrame{
 		 contenedor.setVisible(true);
 		 this.add(contenedor);
 		 
+		 //Imagen para login
 		 JLabel title_login = new JLabel();
 		 ImageIcon icon2 = new ImageIcon("IconoLogin2.png");
 		 title_login.setIcon(icon2);
@@ -90,6 +95,7 @@ public class Ventana extends JFrame{
 		 title_login.setSize(250,150);
 		 contenedor.add(title_login);
 		 
+		 //Creacion de etiquetas y campos para el login
 		 JLabel title_username = new JLabel();
 		 title_username.setText("Usuario");
 		 title_username.setSize(50,10);
@@ -155,6 +161,7 @@ public class Ventana extends JFrame{
 		 acceder.setFocusPainted(false);
 		 contenedor.add(acceder);
 		 
+		 //Carga y set de la imgaen de fondo del login
 		 JLabel fondoImagen = new JLabel();
 		 fondoImagen.setBounds(300,50,400,450);
 		 fondoImagen.setOpaque(true);
@@ -171,6 +178,7 @@ public class Ventana extends JFrame{
 		 JLabel imagen2 = new JLabel(imagenBienvenido);
 		 imagen2.setBounds(0,0,0,0);
 		 
+		 //Comandos para asegurar que todos los componentes se generan correctamente
 		 contenedor.repaint();
 		 contenedor.revalidate();
 	}
@@ -185,6 +193,7 @@ public class Ventana extends JFrame{
 		 register_container.setLayout(null);
 		 this.add(register_container);
 		 
+		 //Creacion de las etiquetas y TextFields de la ventana de registro
 		 JLabel bio_tag = new JLabel("---Registro---");
 		 bio_tag.setBounds(0,30,500,30);
 		 bio_tag.setBackground(Color.black);
@@ -224,6 +233,7 @@ public class Ventana extends JFrame{
 		 reg_pref.setFont(new Font("Arial",Font.BOLD, 15));
 		 register_container.add(reg_pref);
 		 
+		 //Creacion de los botones de marcado para la seleccion del usuario
 		 JCheckBox sweet_option = new JCheckBox("Dulce");
 		 sweet_option.setBounds(100,285,100,40);
 		 register_container.add(sweet_option);
@@ -249,6 +259,7 @@ public class Ventana extends JFrame{
 		 
 		 register_container.add(reg_terms);
 		 
+		 //Cracion de botones para la seleccion del usuario (De tipo RadioButton)
 		 JRadioButton acceptance_terms = new JRadioButton("Acepto los terminos");
 		 acceptance_terms.setBounds(100, 365, 150,30);
 		 register_container.add(acceptance_terms);
@@ -257,15 +268,18 @@ public class Ventana extends JFrame{
 		 reject_terms.setBounds(250, 365, 150, 30);
 		 register_container.add(reject_terms);
 		 
+		 //Creacion de un Grupo de botones para que el usuario pueda seleccionar unicamente una opcion de los RadioButton
 		 ButtonGroup terms = new ButtonGroup();
 		 terms.add(reject_terms);
 		 terms.add(acceptance_terms);
 		 
+		 //Creacion de un arreglo para introducir cada copcion dentro de un ComboBox
 		 String[] colonias = {"Elija su localidad", "Camino York", "La fuente", "villas del encanto", "Cihuatan"};
 		 JComboBox list = new JComboBox(colonias);
 		 list.setBounds(120, 400, 250, 30);
 		 register_container.add(list);
 		 
+		 //Boton de crear
 		 JButton reg_crear = new JButton();
 		 reg_crear.setText("Crear cuenta");
 		 reg_crear.setLocation(175, 435);
@@ -273,10 +287,12 @@ public class Ventana extends JFrame{
 		 reg_crear.setFont(new Font("Arial",Font.BOLD,18));
 		 register_container.add(reg_crear);
 		 
+		 //Repintado de los elemeton
 		 register_container.repaint();
 	}
 	
 	public void users() {
+		//Creacion del Panel de usuraios
 		JPanel users = new JPanel();
 		users.setSize(1000,500);
 		users.setLocation(100, 50);
@@ -284,6 +300,7 @@ public class Ventana extends JFrame{
 		users.setLayout(null);
 		this.add(users);
 		
+		//Etiquetas y botones para la pantalla de users
 		JLabel user_title = new JLabel("USERS");
 		user_title.setBounds(400, 50, 100,40);
 		user_title.setHorizontalAlignment(JLabel.CENTER);
@@ -300,8 +317,9 @@ public class Ventana extends JFrame{
 		add.setBounds(130,120,100,40);
 		users.add(add);
 		
+		//Creacion de un arreglo de opciones  para los apartados de una tabla
 		Object [] table_head = {"No. control","Nombre","Apellidos","Semestre","Promedio","Acciones"};
-		
+		//Creacion de una matriz para los datos de una tabla 
 		Object [][] table_content = {
 				{"No. control","Nombre","Apellidos","Semestre","Promedio","Acciones"},
 				{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
@@ -328,6 +346,7 @@ public class Ventana extends JFrame{
 				{"20040331", "Mariana", "Hernández Díaz", "8", "92.4", "Editar"}
 		};
 		
+		//Creacion de la tabla para usuario con datos, campos y una scrollBar para navegacion
 		JTable users_table = new JTable(table_content,table_head);
 		JScrollPane scrollPane = new JScrollPane(users_table);
 		scrollPane.setLocation(30, 180);
