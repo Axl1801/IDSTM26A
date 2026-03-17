@@ -38,9 +38,9 @@ public class Ventana extends JFrame{
 		 this.setLocationRelativeTo(null);
 		 this.setTitle("Login");
 		 this.setMinimumSize(new Dimension(200,200));
-		 this.setMaximumSize(new Dimension(800,800));
+		 this.setMaximumSize(new Dimension(1200,800));
 		 this.setBackground(Color.black);
-		 this.getContentPane().setBackground(Color.gray);
+		 this.getContentPane().setBackground(Color.CYAN);
 		 this.setLayout(null);
 		 
 		 //Cargar Imegen para el icono de la ventana y setearlo
@@ -371,48 +371,109 @@ public class Ventana extends JFrame{
                 //Convertir a Graphics 2
                 Graphics2D g2d = (Graphics2D) g;
                 
+                //Cuadrado para la tierra subterranea y color Cafe
+                g2d.setColor(Color.decode("#A35400"));
+                g2d.fillRect(0, 650, 1200, 150);
                 
-                //g2d.drawLine(0, 0, 100, 100);
+                //Arco para la montaña sobre la cual esta la casa
+                g2d.setColor(Color.decode("#02B050"));
+                g2d.fillArc(0, 350, 1200, 600, 0, 180);
+               
+                //Casa de paredes amarillas
+                g2d.setColor(Color.decode("#FFF75C"));
+                g2d.fillRect(450, 150, 300, 320);
                 
-                g2d.setStroke(new BasicStroke(3));
+                //Chimenea atras del techo
+                g2d.setColor(Color.gray);
+                g2d.fillRect(650, 20, 60, 100);
+                g2d.fillRect(640, 20, 80, 20);
+                
+                //Poligono para el techo de la casa
+                g2d.setColor(Color.decode("#FFF75C"));
+                g2d.fillPolygon(new int[] {450,650,750}, new int[] {150,50,150}, 3);
+                
+                //Poligono para la parte roja del techo
                 g2d.setColor(Color.red);
-                g2d.drawLine(100,100,500,500);
+                g2d.fillPolygon(new int[] {450,550,650,550}, new int[] {150,50,50,150}, 4);
                 
-                g2d.drawRect(250, 250, 100, 100);
+                //Lineas divisoria de la pared y techo
+                g2d.setColor(Color.black);
+                g2d.setStroke(new BasicStroke(3));
+                g2d.drawLine(450, 150, 450, 470); //Linea izq puerta
+                g2d.drawLine(550, 150, 550, 470); //Linea der puerta
+                g2d.drawLine(750, 150, 750, 470); // Linea der de la casa
+                g2d.drawLine(450, 150, 550, 150);//Linea inferior techo rojo casa
+                g2d.drawLine(550, 150, 650,51);//Linea der del techo de la casa
+                g2d.drawLine(450, 150, 550,50); //Linea delantera del techo de la casa
+                g2d.drawLine(650, 50, 750, 150); //Linea trasera del techo de la casa
+                g2d.drawLine(650, 50, 550, 50);//Linea de la parte superior del techo
+                g2d.drawLine(450, 470, 750, 470);//Linea del suelo de la casa
                 
-                g2d.setColor(Color.green);
-                g2d.drawOval(100, 100, 150, 100);
+                //Puerta con picaporte
+                g2d.setColor(Color.decode("#FFF996"));
+                g2d.fillRect(475, 350, 30, 118);
+                g2d.setColor(Color.black);
+                g2d.drawOval(490, 420, 8, 10);
                 
-                g2d.drawArc(300, 100, 100, 100, 90, 180);
+                //Ventanas
+                g2d.setColor(Color.white);//Fondo de las ventanas
+                g2d.fillRect(460, 195, 60, 70); //V1
+                g2d.fillRect(595, 195, 120,70); //V2
+                g2d.fillRect(595, 345, 120,70); //V3
+                g2d.setColor(Color.cyan);//Cristal de las ventanas
+                g2d.fillRect(465, 200, 50, 60);
+                g2d.fillRect(600, 200, 110, 60);
+                g2d.fillRect(600, 350, 110, 60);
+                g2d.setColor(Color.white); //cuadriculas de las ventanas
+                g2d.drawLine(465,230,515,230 );
+                g2d.drawLine(488,200,488,260 );
+                g2d.drawLine(600,230,710,230 );
+                g2d.drawLine(655,200,655,260 );
+                g2d.drawLine(600,380,710,380 );
+                g2d.drawLine(655,350,655,410 );
                 
-                g2d.drawPolygon(new int[] {200,100,300}, new int[] {100,300,500}, 3);
+                //Cercos
+                g2d.setColor(Color.white);//Ciclo para imprimir las cercas
+                for(int i = 1; i<= 12;) { //Numero de cercas
+                	g2d.fillPolygon(new int[] {(i*100),(i*100)+15,(i*100)+30}, new int[] {450,430,450}, 3); //Posicion de los triangulos
+                	g2d.fillRect((i*100), 450, 30, 80);//Posicion de los rectangulos
+                	if(i<11) {//Condicion para imprimir las uniones de las cercas
+                		g2d.fillRect((i*100),500,100,20);
+                		g2d.fillRect((i*100),470,100,20); 
+                	}
+                	i++;
+                }
                 
-                g2d.setColor(Color.blue);
-                
-                g2d.fillRect(800, 500, 100, 100);
-                
-                g2d.fillOval(800, 300, 100, 100);
-                
+                //Decoraciones
                 g2d.setColor(Color.yellow);
-                g2d.fillArc(600, 100, 100, 100, 30, 300);
+                g2d.fillOval(900, 110, 130, 130); // Sol
                 
-                g2d.fillPolygon(new int[] {200,100,300}, new int[] {100,300,500}, 3);
+                g2d.setColor(Color.white);
+                for(int i = 1; i<=3; i++) { //Ciclo para dibujar nubes
+                		g2d.fillOval(i*100, 80, 150, 100);                		
+                }
+                
+                for(int i = 8; i<=10; i++) {
+            		g2d.fillOval(i*100, 180, 150, 100);                		
+                }
                 
                 BufferedImage image;
 				try {
-					image = ImageIO.read(new File("src/recursos/imagen.png"));
-					g2d.drawImage(image, 500, 50, null);
+					image = ImageIO.read(new File("src/recursos/familia.png"));
+					g2d.drawImage(image, 50,500, null);
 					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
                 
+                
             }
         };
         
-        pane.setSize(1200,800);
         pane.setLocation(0,0);
+        pane.setSize(1200,800);
+        pane.setBackground(Color.decode("#09EAF6"));
         this.add(pane);
 	}
 }
