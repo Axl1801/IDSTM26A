@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -40,7 +42,7 @@ public class Ventana extends JFrame{
 		 this.setMinimumSize(new Dimension(200,200));
 		 this.setMaximumSize(new Dimension(1200,800));
 		 this.setBackground(Color.black);
-		 this.getContentPane().setBackground(Color.CYAN);
+		 this.getContentPane().setBackground(Color.black);
 		 this.setLayout(null);
 		 
 		 //Cargar Imegen para el icono de la ventana y setearlo
@@ -77,9 +79,9 @@ public class Ventana extends JFrame{
 		 
 		 //Invocacion de las diferentes pantallas.
 		 //this.login();
-		 //this.registro();
+		 this.registro();
 		 //this.users();
-		 this.pintar();
+		 //this.pintar();
 		 this.setVisible(true);
 		
 	}
@@ -88,7 +90,7 @@ public class Ventana extends JFrame{
 		 //Contenedor login
 		 JPanel contenedor = new JPanel();
 		 contenedor.setOpaque(true);
-		 contenedor.setBackground(Color.white);
+		 contenedor.setBackground(Color.gray);
 		 contenedor.setSize(1000,600);
 		 contenedor.setLayout(null);
 		 contenedor.setLocation(100,100);
@@ -166,8 +168,30 @@ public class Ventana extends JFrame{
 		 acceder.setLocation(440, 400);
 		 acceder.setSize(120,50);
 		 acceder.setFont(new Font("Arial",Font.BOLD,18));
-		 acceder.setFocusPainted(false);
+		 acceder.setFocusPainted(false);		 
 		 contenedor.add(acceder);
+		 
+		 acceder.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String username_val = username.getText();
+				
+				if(username_val.equals("") || username_val.contains(" ")) {
+					username.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+					username.setBackground(Color.decode("#FFCFCF"));
+					password.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+					password.setBackground(Color.decode("#FFCFCF"));
+				}
+				else {
+					username.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
+					username.setBackground(Color.decode("#D1FFCF"));
+					password.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
+					password.setBackground(Color.decode("#D1FFCF"));
+				}
+				
+			}});
 		 
 		 //Carga y set de la imgaen de fondo del login
 		 JLabel fondoImagen = new JLabel();
@@ -294,6 +318,51 @@ public class Ventana extends JFrame{
 		 reg_crear.setSize(150,50);
 		 reg_crear.setFont(new Font("Arial",Font.BOLD,18));
 		 register_container.add(reg_crear);
+		 
+		 reg_crear.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					String username_val = reg_username.getText();
+					String desc_val = bio_text.getText();
+					if(username_val.equals("") || username_val.contains(" ") ) {
+						reg_username.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+						reg_username.setBackground(Color.decode("#FFCFCF"));
+					}else {
+						reg_username.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
+						reg_username.setBackground(Color.decode("#D1FFCF"));
+					}
+					
+					if(desc_val.length() > 0 || desc_val.length() < 6) {
+						bio_text.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+						bio_text.setBackground(Color.decode("#FFCFCF"));
+					}else {
+						bio_text.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
+						bio_text.setBackground(Color.decode("#D1FFCF"));
+					}
+					if(!healthy_option.isSelected() && !salty_option.isSelected() && !sweet_option.isSelected()) {
+						healthy_option.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+						healthy_option.setBackground(Color.decode("#FFCFCF"));
+						salty_option.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+						salty_option.setBackground(Color.decode("#FFCFCF"));
+						sweet_option.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+						sweet_option.setBackground(Color.decode("#FFCFCF"));
+						
+					}else {
+						healthy_option.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
+						healthy_option.setBackground(Color.decode("#D1FFCF"));
+						salty_option.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
+						salty_option.setBackground(Color.decode("#D1FFCF"));
+						sweet_option.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
+						sweet_option.setBackground(Color.decode("#D1FFCF"));
+					}
+					if(reject_terms.isSelected()) {
+						reject_terms.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+						reject_terms.setBackground(Color.decode("#FFCFCF"));
+					}
+					
+				}});
 		 
 		 //Repintado de los elemeton
 		 register_container.repaint();
