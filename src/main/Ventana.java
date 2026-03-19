@@ -24,6 +24,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -78,8 +79,8 @@ public class Ventana extends JFrame{
 		 //this.setJMenuBar(barra);
 		 
 		 //Invocacion de las diferentes pantallas.
-		 //this.login();
-		 this.registro();
+		 this.login();
+		 //this.registro();
 		 //this.users();
 		 //this.pintar();
 		 this.setVisible(true);
@@ -177,12 +178,14 @@ public class Ventana extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String username_val = username.getText();
-				
-				if(username_val.equals("") || username_val.contains(" ")) {
+				String real_user = "Axel123";
+				String real_pass = "ExtrañoAMiEx123";
+				if(username_val.equals("") || username_val.contains(" ") || !username_val.equals(real_user)) {
 					username.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
 					username.setBackground(Color.decode("#FFCFCF"));
 					password.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
 					password.setBackground(Color.decode("#FFCFCF"));
+					JOptionPane.showMessageDialog(null, "Datos Incorrectos, Porfavor Verifique sus datos o regisrtrese en el sistema");
 				}
 				else {
 					username.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
@@ -326,21 +329,26 @@ public class Ventana extends JFrame{
 					// TODO Auto-generated method stub
 					String username_val = reg_username.getText();
 					String desc_val = bio_text.getText();
+					boolean valid = true;
+					//REGISTRO DE USUARIO
 					if(username_val.equals("") || username_val.contains(" ") ) {
 						reg_username.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
 						reg_username.setBackground(Color.decode("#FFCFCF"));
+						valid = false;
 					}else {
 						reg_username.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
 						reg_username.setBackground(Color.decode("#D1FFCF"));
 					}
-					
-					if(desc_val.length() > 0 || desc_val.length() < 6) {
+					//BIOGRAFIA
+					if(desc_val.length() > 0 && desc_val.length() < 6) {
 						bio_text.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
 						bio_text.setBackground(Color.decode("#FFCFCF"));
+						valid = false;
 					}else {
 						bio_text.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
 						bio_text.setBackground(Color.decode("#D1FFCF"));
 					}
+					//OPCIONES DE PREFERENCIA
 					if(!healthy_option.isSelected() && !salty_option.isSelected() && !sweet_option.isSelected()) {
 						healthy_option.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
 						healthy_option.setBackground(Color.decode("#FFCFCF"));
@@ -348,6 +356,7 @@ public class Ventana extends JFrame{
 						salty_option.setBackground(Color.decode("#FFCFCF"));
 						sweet_option.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
 						sweet_option.setBackground(Color.decode("#FFCFCF"));
+						valid = false;
 						
 					}else {
 						healthy_option.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
@@ -357,9 +366,19 @@ public class Ventana extends JFrame{
 						sweet_option.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
 						sweet_option.setBackground(Color.decode("#D1FFCF"));
 					}
-					if(reject_terms.isSelected()) {
-						reject_terms.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
-						reject_terms.setBackground(Color.decode("#FFCFCF"));
+					//ACEPTAR TERMINOS Y CONDICIONES
+					if(!acceptance_terms.isSelected()) {
+						acceptance_terms.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+						acceptance_terms.setBackground(Color.decode("#FFCFCF"));
+						valid = false;
+					}else {
+						acceptance_terms.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
+						acceptance_terms.setBackground(Color.decode("#D1FFCF"));	
+					}
+					
+					//MOSTRAR VENTANA DE ERROR
+					if(!valid) {
+						JOptionPane.showMessageDialog(null,"Error, llene correctamente los datos o vuelva a intentarlo");
 					}
 					
 				}});
