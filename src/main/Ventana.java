@@ -54,18 +54,32 @@ public class Ventana extends JFrame{
 		 JMenuBar barra = new JMenuBar();
 		 
 		 JMenu archivo = new JMenu("Archivo");
+		 JMenu cuenta = new JMenu("Cuenta");
 		 
 		 JMenuItem open = new JMenuItem("Abrir");
 		 JMenuItem close = new JMenuItem("Cerrar");
 		 JMenuItem save = new JMenuItem("Guardar");
 		 JMenuItem NewFile = new JMenuItem("Nuevo archivo");
 		 
+		 JMenuItem Login = new JMenuItem("Login");
+		 Login.addActionListener(e-> {
+			 this.router("login");
+		 });
+		 
+		 JMenuItem registro = new JMenuItem("Registro");
+		 registro.addActionListener(e-> {
+			 this.router("registro");
+		 });
 		 archivo.add(open);
 		 archivo.add(close);
 		 archivo.add(save);
 		 archivo.add(NewFile);
 		 
+		 cuenta.add(Login);
+		 cuenta.add(registro);
+		 
 		 barra.add(archivo);
+		 barra.add(cuenta);
 		 JMenu subMenu = new JMenu("Otros");
 		 archivo.addSeparator();
 		 
@@ -76,7 +90,7 @@ public class Ventana extends JFrame{
 		 subMenu.add(newItem2);
 		 archivo.add(subMenu);
 		 
-		 //this.setJMenuBar(barra);
+		 this.setJMenuBar(barra);
 		 
 		 //Invocacion de las diferentes pantallas.
 		 this.login();
@@ -166,21 +180,24 @@ public class Ventana extends JFrame{
 		 acceder.setText("Acceder");
 		 acceder.setBackground(Color.black);
 		 acceder.setForeground(Color.white);
-		 acceder.setLocation(440, 400);
+		 acceder.setLocation(440, 350);
 		 acceder.setSize(120,50);
 		 acceder.setFont(new Font("Arial",Font.BOLD,18));
 		 acceder.setFocusPainted(false);		 
 		 contenedor.add(acceder);
 		 
+		 //Action Listener para crear la funcion del boton, validaciones del login
 		 acceder.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String username_val = username.getText();
+				String password_val = new String(password.getPassword());
 				String real_user = "Axel123";
 				String real_pass = "ExtrañoAMiEx123";
-				if(username_val.equals("") || username_val.contains(" ") || !username_val.equals(real_user)) {
+				if(username_val.equals("") || username_val.contains(" ") || !username_val.equals(real_user) 
+						|| !real_pass.equals(real_pass)) {
 					username.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
 					username.setBackground(Color.decode("#FFCFCF"));
 					password.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
@@ -193,8 +210,22 @@ public class Ventana extends JFrame{
 					password.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
 					password.setBackground(Color.decode("#D1FFCF"));
 				}
-				
 			}});
+		 
+		 
+		 JButton registro = new JButton("¿Aún no tienes cuenta?");
+		 registro.setText("Registrarse");
+		 registro.setBackground(Color.black);
+		 registro.setForeground(Color.white);
+		 registro.setLocation(425, 420);
+		 registro.setSize(150,50);
+		 registro.setFont(new Font("Arial",Font.BOLD,18));
+		 registro.setFocusPainted(false);		 
+		 contenedor.add(registro);
+		 
+		 registro.addActionListener(e-> {
+			 this.router("registro");
+		 });
 		 
 		 //Carga y set de la imgaen de fondo del login
 		 JLabel fondoImagen = new JLabel();
@@ -317,11 +348,11 @@ public class Ventana extends JFrame{
 		 //Boton de crear
 		 JButton reg_crear = new JButton();
 		 reg_crear.setText("Crear cuenta");
-		 reg_crear.setLocation(175, 435);
+		 reg_crear.setLocation(100, 435);
 		 reg_crear.setSize(150,50);
 		 reg_crear.setFont(new Font("Arial",Font.BOLD,18));
 		 register_container.add(reg_crear);
-		 
+		 //Validaciones al pulsar boton
 		 reg_crear.addActionListener(new ActionListener() {
 
 				@Override
@@ -382,8 +413,18 @@ public class Ventana extends JFrame{
 					}
 					
 				}});
+		 //Boton para volver al login
+		 JButton login_back = new JButton("¿Ya tienes cuenta?");
+		 login_back.setLocation(250, 435);
+		 login_back.setSize(150,50);
+		 login_back.setFont(new Font("Arial",Font.BOLD,13));
+		 login_back.setFocusPainted(false);		 
+		 register_container.add(login_back);
 		 
-		 //Repintado de los elemeton
+		 login_back.addActionListener(e-> {
+			 this.router("login");
+		 });
+		 //Repintado de los elemetos
 		 register_container.repaint();
 	}
 	
@@ -449,6 +490,22 @@ public class Ventana extends JFrame{
 		scrollPane.setSize(800,200);
 		//users_table.setBorder(BorderFactory.createLineBorder(Color.black));
 		users.add(scrollPane);
+	}
+	
+	public void router(String target) {
+		
+		this.getContentPane().removeAll();
+		
+		if(target.equals("login")) {
+			this.login();
+		}
+		if(target.equals("registro")) {
+			this.registro();
+		}
+		
+		this.setVisible(true);
+		this.repaint();
+		this.revalidate();
 	}
 	
 	public void pintar() {
