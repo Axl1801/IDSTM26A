@@ -93,10 +93,11 @@ public class Ventana extends JFrame{
 		 this.setJMenuBar(barra);
 		 
 		 //Invocacion de las diferentes pantallas.
-		 this.login();
+		 //this.login();
 		 //this.registro();
 		 //this.users();
 		 //this.pintar();
+		 this.MarioBros();
 		 this.setVisible(true);
 		
 	}
@@ -610,15 +611,196 @@ public class Ventana extends JFrame{
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-                
-                
+				}   
             }
         };
         
         pane.setLocation(0,0);
         pane.setSize(1200,800);
         pane.setBackground(Color.decode("#09EAF6"));
+        this.add(pane);
+	}
+	
+	public void MarioBros() {
+        JPanel pane = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                //Convertir a Graphics 2
+                Graphics2D g2d = (Graphics2D) g;
+                
+                //guia del centro del espacio
+                //g2d.setColor(Color.white);
+                //g2d.drawLine(0, 248, 1200, 248);
+                
+                //Cuadrado para la tierra subterranea y color Cafe
+                g2d.setColor(Color.decode("#F09469"));
+                g2d.fillRect(0, 500, 1200, 300);
+                // contorno del suelo
+                g2d.setColor(Color.black);
+                g2d.fillRect(0, 495, 1200, 60);
+                //Suelo
+                g2d.setColor(Color.decode("#F8C7C3"));
+                g2d.fillRect(0, 500, 1200, 50);
+                //ciclo para el diseño del suelo
+                g2d.setStroke(new BasicStroke(5));
+                for(int i = 0; i<1200;) {
+                	if(i%2==0) {
+                		g2d.setColor(Color.black);
+                		g2d.drawLine(i, 555, i+38, 850);
+                	}else {
+                		g2d.setColor(Color.decode("000000"));
+                		g2d.drawLine(i, 555, i+38, 850);
+                	}
+                	i+=50;
+                }
+                //Conjunto de figuras cuadradas
+                //Figura1 azul
+                g2d.setColor(Color.black);
+                g2d.fillRect(425, 250, 200, 245);
+                g2d.setColor(Color.decode("#84BFFF"));
+                g2d.fillRect(425, 250,175, 245);
+                g2d.setColor(Color.black);
+                g2d.drawRect(425, 250,200, 245);
+                //Figura2 crema
+                g2d.setColor(Color.black);
+                g2d.fillRect(325, 308, 150, 187);
+                g2d.setColor(Color.decode("#FFC3B8"));
+                g2d.fillRect(290, 310, 165, 185);
+                g2d.setColor(Color.black);
+                g2d.drawRect(290, 310, 165, 185);
+                //Figura3 verde
+                g2d.setColor(Color.black);
+                g2d.fillRect(1000, 308, 250, 187);
+                g2d.setColor(Color.decode("#51D96B"));
+                g2d.fillRect(1000, 308, 165, 187);
+                g2d.setColor(Color.black);
+                g2d.drawRect(1000, 308, 250, 187);
+                
+                //Figura4 Cuadro powerUp
+                g2d.setColor(Color.decode("#FF915C"));
+                g2d.fillRect(100, 240, 65, 50);
+                g2d.setColor(Color.black);
+                g2d.drawRect(100, 240, 65, 50);
+                
+                //Figura5 cuadros de powerUp
+                g2d.setColor(Color.decode("#FF915C"));
+                g2d.fillRect(170, 100, 130, 50);
+                g2d.setColor(Color.black);
+                g2d.drawRect(170, 100, 130, 50);
+                g2d.drawLine(235, 100, 235, 150);
+                
+                //Figura6 Cuadro powerUp
+                g2d.setColor(Color.decode("#FF915C"));
+                g2d.fillRect(1100, 150, 65, 50);
+                g2d.setColor(Color.black);
+                g2d.drawRect(1100, 150, 65, 50);
+                
+                //Tuberia
+                g2d.setColor(Color.decode("#188810"));
+                g2d.fillRect(765, 308, 130, 187);
+                g2d.setColor(Color.black);
+                g2d.drawRect(765, 308, 130, 187);
+                g2d.setColor(Color.decode("#188810"));
+                g2d.fillRect(750, 308, 160, 50);
+                g2d.setColor(Color.black);
+                g2d.drawRect(750, 308, 160, 50);
+                
+                //Decoraciones
+                //Signos de interrogacion
+                Font fuente = new Font("Pixelify Sans",Font.BOLD,40);
+                g2d.setColor(Color.decode("#F6CCCA"));
+                g2d.setFont(fuente);
+                g2d.drawString("?",190, 140);
+                g2d.drawString("?",255, 140);
+                g2d.drawString("?",1120, 190);
+                g2d.drawString("?",120, 280);
+                //Ajustar ancho de dibujado
+                g2d.setStroke(new BasicStroke(3));
+                //Rectangulos y Cuadrados
+                g2d.setColor(Color.decode("#148FE2"));
+                g2d.fillRect(590, 253, 10, 240);//Sombra Azul
+                g2d.setColor(Color.decode("#EA956E"));
+                g2d.fillRect(442, 313, 10, 180);//Sombra Crema
+                //Tornillos
+                g2d.setColor(Color.LIGHT_GRAY);
+                g2d.fillOval(300, 318, 15, 15);//Crema
+                g2d.fillOval(300, 470, 15, 15);//Crema
+                g2d.fillOval(430, 318, 15, 15);//Crema
+                g2d.fillOval(430, 470, 15, 15);//Crema
+                g2d.fillOval(440, 265, 15, 15);//Azul
+                g2d.fillOval(575, 265, 15, 15);//Azul
+                g2d.fillOval(575, 470, 15, 15);//Azul
+                g2d.fillOval(1010, 318, 15, 15);//Verde
+                g2d.fillOval(1010, 470, 15, 15);//Verde
+                g2d.fillOval(1140, 318, 15, 15);//Verde
+                g2d.fillOval(1140, 470, 15, 15);//Verde
+                g2d.setColor(Color.black);
+                g2d.drawOval(300,318, 15, 15);//Crema
+                g2d.drawOval(300,470, 15, 15);//Crema
+                g2d.drawOval(430,318, 15, 15);//Crema
+                g2d.drawOval(430,470, 15, 15);//Crema
+                g2d.drawOval(440, 265, 15, 15);//Azul
+                g2d.drawOval(575, 265, 15, 15);//Azul
+                g2d.drawOval(575, 470, 15, 15);//Azul
+                g2d.drawOval(1010, 318, 15, 15);//Verde
+                g2d.drawOval(1010, 470, 15, 15);//Verde
+                g2d.drawOval(1140, 318, 15, 15);//Verde
+                g2d.drawOval(1140, 470, 15, 15);//Verde
+                //Tuberia
+                g2d.setColor(Color.decode("#45DE632")); 
+                g2d.fillRect(765, 310, 18, 46);//Tuberia Superior
+                g2d.fillRect(785, 310, 30, 46);//Tuberia Superior
+                g2d.fillRect(818, 310, 7, 46);//Tuberia Superior
+                g2d.fillRect(826, 310, 1, 46);//Tuberia Superior
+                g2d.fillRect(828, 310, 1, 46);//Tuberia Superior
+                g2d.fillRect(840, 310, 4, 46);//Tuberia Superior
+                g2d.fillRect(770, 361, 18, 132);//Tuberia inferior
+                g2d.fillRect(790, 361, 30, 132);//Tuberia inferior
+                g2d.fillRect(822, 361, 7, 132);//Tuberia inferior
+                g2d.fillRect(831, 361, 1, 132);//Tuberia inferior
+                g2d.fillRect(833, 361, 1, 132);//Tuberia inferior
+                g2d.fillRect(835, 361, 4, 132);//Tuberia inferior
+                g2d.setColor(Color.black);
+                g2d.fillRect(846, 310, 4, 46);//Tuberia Superior
+                g2d.fillRect(852, 310, 2, 46);//Tuberia Superior
+                g2d.fillRect(856, 310, 16,46);//Tuberia Superior
+                g2d.fillRect(876, 310, 8, 46);//Tuberia Superior
+                g2d.fillRect(890, 310, 5, 46);//Tuberia Superior
+                g2d.fillRect(898, 310, 3, 46);//Tuberia Superior
+                g2d.fillRect(846, 361, 4, 132);//Tuberia Inferior
+                g2d.fillRect(852, 361, 2, 132);//Tuberia Inferior
+                g2d.fillRect(856, 361, 16,132);//Tuberia Inferior
+                g2d.fillRect(876, 361, 8, 132);//Tuberia Inferior
+                g2d.fillRect(890, 361, 5, 132);//Tuberia Inferior
+                //MarioBros.png
+                BufferedImage image;
+				try {
+					image = ImageIO.read(new File("src/recursos/plantaMario.png"));
+					g2d.drawImage(image, 760,180, null);
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				//Dibujo de Mario Bros
+                BufferedImage image2;
+				try {
+					image = ImageIO.read(new File("src/recursos/Mario.png"));
+					g2d.drawImage(image, 550,365, null);
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+            }
+        };
+        
+        pane.setLocation(0,0);
+        pane.setSize(1200,800);
+        pane.setBackground(Color.decode("#B2EEFE"));
         this.add(pane);
 	}
 }
