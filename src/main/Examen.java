@@ -74,8 +74,9 @@ public class Examen {
 		norte.setBackground(Color.decode("#006699"));
 		frame.getContentPane().add(norte, BorderLayout.NORTH);
 		
-		JLabel TituloAzul = new JLabel("Factura JAVA - Eclipse - ArrayList y POO");
-		TituloAzul.setFont(new Font("Arial", Font.BOLD, 10));
+		JLabel TituloAzul = new JLabel("Factura JAVA - Eclipse - ArrayList y POO\r\n(Sin Base de Datos)");
+		TituloAzul.setForeground(new Color(255, 255, 255));
+		TituloAzul.setFont(new Font("Arial Black", Font.BOLD, 10));
 		norte.add(TituloAzul);
 		
 		JPanel Centro = new JPanel();

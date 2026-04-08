@@ -50,54 +50,10 @@ public class Ventana extends JFrame{
 		 ImageIcon icon = new ImageIcon("IconoVentana2.PNG");
 		 this.setIconImage(icon.getImage());
 		 
-		 //Creacion de barra de opciones y sus opciones dentro de la misma
-		 JMenuBar barra = new JMenuBar();
-		 
-		 JMenu archivo = new JMenu("Archivo");
-		 JMenu cuenta = new JMenu("Cuenta");
-		 
-		 JMenuItem open = new JMenuItem("Abrir");
-		 JMenuItem close = new JMenuItem("Cerrar");
-		 JMenuItem save = new JMenuItem("Guardar");
-		 JMenuItem NewFile = new JMenuItem("Nuevo archivo");
-		 
-		 JMenuItem Login = new JMenuItem("Login");
-		 Login.addActionListener(e-> {
-			 this.router("login");
-		 });
-		 
-		 JMenuItem registro = new JMenuItem("Registro");
-		 registro.addActionListener(e-> {
-			 this.router("registro");
-		 });
-		 archivo.add(open);
-		 archivo.add(close);
-		 archivo.add(save);
-		 archivo.add(NewFile);
-		 
-		 cuenta.add(Login);
-		 cuenta.add(registro);
-		 
-		 barra.add(archivo);
-		 barra.add(cuenta);
-		 JMenu subMenu = new JMenu("Otros");
-		 archivo.addSeparator();
-		 
-		 JMenuItem newItem = new JMenuItem("SUBMENUUITEM");
-		 JMenuItem newItem2 = new JMenuItem("SEGUNDOITEM");
-		 
-		 subMenu.add(newItem);
-		 subMenu.add(newItem2);
-		 archivo.add(subMenu);
-		 
-		 this.setJMenuBar(barra);
+		 this.menu();
 		 
 		 //Invocacion de las diferentes pantallas.
-		 //this.login();
-		 //this.registro();
-		 //this.users();
-		 //this.pintar();
-		 this.MarioBros();
+		 this.login();
 		 this.setVisible(true);
 		
 	}
@@ -493,6 +449,264 @@ public class Ventana extends JFrame{
 		users.add(scrollPane);
 	}
 	
+	public void password_recovery() {
+		//Contenedor login
+		 JPanel cont_pass = new JPanel();
+		 cont_pass.setOpaque(true);
+		 cont_pass.setBackground(Color.white);
+		 cont_pass.setSize(1000,600);
+		 cont_pass.setLayout(null);
+		 cont_pass.setLocation(100,100);
+		 cont_pass.setVisible(true);
+		 this.add(cont_pass);
+		 
+		 //Creacion de etiquetas y campos para el login
+		 JLabel title_recpass = new JLabel();
+		 title_recpass.setText("Recuperar contraseña");
+		 title_recpass.setSize(400,400);
+		 title_recpass.setOpaque(true);
+		 title_recpass.setLocation(350,200);
+		 title_recpass.setBackground(Color.decode("#FAFAFA"));
+		 title_recpass.setFont(new Font("Arial",Font.BOLD,20));
+		 title_recpass.setHorizontalAlignment(JLabel.CENTER);
+		 cont_pass.add(title_recpass);
+	}
+	
+	public void alta() {
+		//Contenedor login
+		 JPanel alta = new JPanel();
+		 alta.setOpaque(true);
+		 alta.setBackground(Color.white);
+		 alta.setSize(1000,600);
+		 alta.setLayout(null);
+		 alta.setLocation(100,100);
+		 alta.setVisible(true);
+		 this.add(alta);
+		 
+		 //Creacion de etiquetas y campos para el login
+		 JLabel title_alta = new JLabel();
+		 title_alta.setText("Alta");
+		 title_alta.setSize(400,400);
+		 title_alta.setOpaque(true);
+		 title_alta.setLocation(350,200);
+		 title_alta.setBackground(Color.decode("#FAFAFA"));
+		 title_alta.setFont(new Font("Arial",Font.BOLD,20));
+		 title_alta.setHorizontalAlignment(JLabel.CENTER);
+		 alta.add(title_alta);
+	}
+	
+	public void baja() {
+		//Contenedor login
+		 JPanel baja = new JPanel();
+		 baja.setOpaque(true);
+		 baja.setBackground(Color.white);
+		 baja.setSize(1000,600);
+		 baja.setLayout(null);
+		 baja.setLocation(100,100);
+		 baja.setVisible(true);
+		 this.add(baja);
+		 
+		 //Creacion de etiquetas y campos para el login
+		 JLabel title_baja = new JLabel();
+		 title_baja .setText("Baja");
+		 title_baja .setSize(400,400);
+		 title_baja .setOpaque(true);
+		 title_baja .setLocation(350,200);
+		 title_baja .setBackground(Color.decode("#FAFAFA"));
+		 title_baja .setFont(new Font("Arial",Font.BOLD,20));
+		 title_baja .setHorizontalAlignment(JLabel.CENTER);
+		 baja.add(title_baja);
+	}
+	
+	public void consult() {
+		//Contenedor login
+		 JPanel consult = new JPanel();
+		 consult.setOpaque(true);
+		 consult.setBackground(Color.white);
+		 consult.setSize(1000,600);
+		 consult.setLayout(null);
+		 consult.setLocation(100,100);
+		 consult.setVisible(true);
+		 this.add(consult);
+		 
+		 //Creacion de etiquetas y campos para el login
+		 JLabel title_consult = new JLabel();
+		 title_consult.setText("Recuperar contraseña");
+		 title_consult.setSize(400,400);
+		 title_consult.setOpaque(true);
+		 title_consult.setLocation(350,200);
+		 title_consult.setBackground(Color.decode("#FAFAFA"));
+		 title_consult.setFont(new Font("Arial",Font.BOLD,20));
+		 title_consult.setHorizontalAlignment(JLabel.CENTER);
+		 //title_username.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
+		 consult.add(title_consult);
+	}
+	
+	public void how_create() {
+		//Contenedor login
+		 JPanel cont_create = new JPanel();
+		 cont_create.setOpaque(true);
+		 cont_create.setBackground(Color.white);
+		 cont_create.setSize(1000,600);
+		 cont_create.setLayout(null);
+		 cont_create.setLocation(100,100);
+		 cont_create.setVisible(true);
+		 this.add(cont_create);
+		 
+		 //Creacion de etiquetas y campos para el login
+		 JLabel title_create = new JLabel();
+		 title_create.setText("¿Cómo crear un usuario?");
+		 title_create.setSize(400,400);
+		 title_create.setOpaque(true);
+		 title_create.setLocation(350,200);
+		 title_create.setBackground(Color.decode("#FAFAFA"));
+		 title_create.setFont(new Font("Arial",Font.BOLD,20));
+		 title_create.setHorizontalAlignment(JLabel.CENTER);
+		 //title_username.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
+		 cont_create.add(title_create);
+	}
+	
+	public void how_log() {
+		//Contenedor login
+		 JPanel cont_log = new JPanel();
+		 cont_log.setOpaque(true);
+		 cont_log.setBackground(Color.white);
+		 cont_log.setSize(1000,600);
+		 cont_log.setLayout(null);
+		 cont_log.setLocation(100,100);
+		 cont_log.setVisible(true);
+		 this.add(cont_log);
+		 
+		 //Creacion de etiquetas y campos para el login
+		 JLabel title_log = new JLabel();
+		 title_log.setText("¿Como acceder al sistema?");
+		 title_log.setSize(400,400);
+		 title_log.setOpaque(true);
+		 title_log.setLocation(350,200);
+		 title_log.setBackground(Color.decode("#FAFAFA"));
+		 title_log.setFont(new Font("Arial",Font.BOLD,20));
+		 title_log.setHorizontalAlignment(JLabel.CENTER);
+		 //title_username.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
+		 cont_log.add(title_log);
+	}
+	
+	public void how_recover() {
+		//Contenedor login
+		 JPanel cont_recover = new JPanel();
+		 cont_recover.setOpaque(true);
+		 cont_recover.setBackground(Color.white);
+		 cont_recover.setSize(1000,600);
+		 cont_recover.setLayout(null);
+		 cont_recover.setLocation(100,100);
+		 cont_recover.setVisible(true);
+		 this.add(cont_recover);
+		 
+		 //Creacion de etiquetas y campos para el login
+		 JLabel title_recover = new JLabel();
+		 title_recover.setText("¿Que pasa si olvido mi contraseña?");
+		 title_recover.setSize(400,400);
+		 title_recover.setOpaque(true);
+		 title_recover.setLocation(350,200);
+		 title_recover.setBackground(Color.decode("#FAFAFA"));
+		 title_recover.setFont(new Font("Arial",Font.BOLD,20));
+		 title_recover.setHorizontalAlignment(JLabel.CENTER);
+		 //title_username.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
+		 cont_recover.add(title_recover);
+	}
+	public void menu() {
+		 //Creacion de barra de opciones y sus opciones dentro de la misma
+		 JMenuBar barra = new JMenuBar();
+		 
+		 JMenu archivo = new JMenu("Archivo");
+		 JMenu cuenta = new JMenu("Cuenta");
+		 JMenu usuarios = new JMenu("Usuarios");
+		 JMenu ayuda = new JMenu("Ayuda");
+		 
+		 JMenuItem open = new JMenuItem("Abrir");
+		 JMenuItem close = new JMenuItem("Cerrar");
+		 JMenuItem save = new JMenuItem("Guardar");
+		 JMenuItem NewFile = new JMenuItem("Nuevo archivo");
+		 
+		 JMenuItem Login = new JMenuItem("Login");
+		 Login.addActionListener(e-> {
+			 this.router("login");
+		 });
+		 
+		 JMenuItem registro = new JMenuItem("Registro");
+		 registro.addActionListener(e-> {
+			 this.router("registro");
+		 });
+		 
+		 JMenuItem password_recovery = new JMenuItem("Recuperar Contraseña");
+		 password_recovery.addActionListener(e -> {
+			 this.router("password_recovery");
+		 });
+		 
+		 JMenuItem alta = new JMenuItem("Alta");
+		 alta.addActionListener(e -> {
+			 this.router("alta");
+		 });
+		 
+		 JMenuItem baja = new JMenuItem("Baja");
+		 baja.addActionListener(e -> {
+			 this.router("baja");
+		 });
+		 
+		 JMenuItem consult = new JMenuItem("Consultar");
+		 consult.addActionListener(e -> {
+			 this.router("consult");
+		 });
+
+		 
+		 JMenuItem crear_usuario = new JMenuItem("¿Cómo crear un usuario?");
+		 crear_usuario.addActionListener(e -> {
+			 this.router("how_create");
+		 });
+		 
+		 JMenuItem acceder_sistema = new JMenuItem("¿Cómo acceder al sistema?");
+		 acceder_sistema.addActionListener(e -> {
+			 this.router("how_log");
+		 });
+		 
+		 JMenuItem olv_cont = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+		 olv_cont.addActionListener(e -> {
+			 this.router("how_recover");
+		 });
+		 
+		 archivo.add(open);
+		 archivo.add(close);
+		 archivo.add(save);
+		 archivo.add(NewFile);
+		 
+		 cuenta.add(Login);
+		 cuenta.add(registro);
+		 cuenta.add(password_recovery);
+		 
+		 usuarios.add(alta);
+		 usuarios.add(baja);
+		 usuarios.add(consult);
+		 
+		 ayuda.add(crear_usuario);
+		 ayuda.add(acceder_sistema);
+		 ayuda.add(olv_cont);
+		 
+		 barra.add(archivo);
+		 barra.add(cuenta);
+		 barra.add(usuarios);
+		 barra.add(ayuda);
+		 JMenu subMenu = new JMenu("Otros");
+		 archivo.addSeparator();
+		 
+		 JMenuItem newItem = new JMenuItem("SUBMENUUITEM");
+		 JMenuItem newItem2 = new JMenuItem("SEGUNDOITEM");
+		 
+		 subMenu.add(newItem);
+		 subMenu.add(newItem2);
+		 archivo.add(subMenu);
+		 
+		 this.setJMenuBar(barra);
+	}
+	
 	public void router(String target) {
 		
 		this.getContentPane().removeAll();
@@ -500,9 +714,31 @@ public class Ventana extends JFrame{
 		if(target.equals("login")) {
 			this.login();
 		}
-		if(target.equals("registro")) {
+		else if(target.equals("registro")) {
 			this.registro();
 		}
+		else if(target.equals("password_recovery")) {
+			this.password_recovery();
+		}
+		else if(target.equals("alta")) {
+			this.alta();
+		}
+		else if(target.equals("baja")) {
+			this.baja();
+		}
+		else if(target.equals("consult")) {
+			this.consult();
+		}
+		else if(target.equals("how_create")) {
+			this.how_create();
+		}
+		else if(target.equals("how_log")) {
+			this.how_log();
+		}
+		else if(target.equals("how_recover")) {
+			this.how_recover();
+		}
+		
 		
 		this.setVisible(true);
 		this.repaint();
