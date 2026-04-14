@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -149,12 +150,13 @@ public class Ventana extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				
 				String username_val = username.getText();
 				String password_val = new String(password.getPassword());
 				String real_user = "Axel123";
 				String real_pass = "ExtrañoAMiEx123";
 				if(username_val.equals("") || username_val.contains(" ") || !username_val.equals(real_user) 
-						|| !real_pass.equals(real_pass)) {
+						|| !password_val.equals(real_pass)) {
 					username.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
 					username.setBackground(Color.decode("#FFCFCF"));
 					password.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
@@ -168,6 +170,7 @@ public class Ventana extends JFrame{
 					password.setBackground(Color.decode("#D1FFCF"));
 				}
 			}});
+		 
 		 
 		 
 		 JButton registro = new JButton("¿Aún no tienes cuenta?");
@@ -210,7 +213,7 @@ public class Ventana extends JFrame{
 		 //Contenedor registro
 		 JPanel register_container = new JPanel();
 		 register_container.setSize(500,500);
-		 register_container.setLocation(650, 25);
+		 register_container.setLocation(350, 100);
 		 register_container.setOpaque(true);
 		 register_container.setBackground(Color.decode("#FFFFFF"));
 		 register_container.setLayout(null);
@@ -246,9 +249,21 @@ public class Ventana extends JFrame{
 		 register_container.add(reg_bio);
 		 
 		 JTextArea bio_text = new JTextArea();
-		 bio_text.setBounds(100,140,300,120);
+		 bio_text.setBounds(100,140,300,60);
 		 bio_text.setBackground(Color.decode("#D9D9D9"));
 		 register_container.add(bio_text);
+		 
+		 JLabel tag_correo = new JLabel("Correo Electronico");
+		 tag_correo.setBounds(0, 200, 500, 30);
+		 tag_correo.setHorizontalAlignment(JLabel.CENTER);
+		 tag_correo.setFont(new Font("Arial",Font.BOLD, 15));
+		 register_container.add(tag_correo);
+		 
+		 JTextField reg_correo = new JTextField();
+		 reg_correo.setSize(300,30);
+		 reg_correo.setLocation(100,225);
+		 reg_correo.setFont(new Font("Arial",Font.BOLD,15));
+		 register_container.add(reg_correo);
 		 
 		 JLabel reg_pref = new JLabel("Preferencias");
 		 reg_pref.setBounds(0, 260, 500, 30);
@@ -395,7 +410,7 @@ public class Ventana extends JFrame{
 		this.add(users);
 		
 		//Etiquetas y botones para la pantalla de users
-		JLabel user_title = new JLabel("USERS");
+		JLabel user_title = new JLabel("Consul");
 		user_title.setBounds(400, 50, 100,40);
 		user_title.setHorizontalAlignment(JLabel.CENTER);
 		user_title.setFont(new Font("Arial",Font.BOLD,22));
@@ -454,22 +469,67 @@ public class Ventana extends JFrame{
 		 JPanel cont_pass = new JPanel();
 		 cont_pass.setOpaque(true);
 		 cont_pass.setBackground(Color.white);
-		 cont_pass.setSize(1000,600);
+		 cont_pass.setSize(600,400);
 		 cont_pass.setLayout(null);
-		 cont_pass.setLocation(100,100);
+		 cont_pass.setLocation(300,150);
 		 cont_pass.setVisible(true);
 		 this.add(cont_pass);
 		 
 		 //Creacion de etiquetas y campos para el login
 		 JLabel title_recpass = new JLabel();
 		 title_recpass.setText("Recuperar contraseña");
-		 title_recpass.setSize(400,400);
+		 title_recpass.setSize(400,30);
 		 title_recpass.setOpaque(true);
-		 title_recpass.setLocation(350,200);
-		 title_recpass.setBackground(Color.decode("#FAFAFA"));
+		 title_recpass.setLocation(100,50);
+		 title_recpass.setBackground(Color.black);
+		 title_recpass.setForeground(Color.white);
 		 title_recpass.setFont(new Font("Arial",Font.BOLD,20));
 		 title_recpass.setHorizontalAlignment(JLabel.CENTER);
 		 cont_pass.add(title_recpass);
+		 
+		 JLabel title_correo = new JLabel();
+		 title_correo.setText("Introduzca el correo asociado a su cuenta.");
+		 title_correo.setSize(300,80);
+		 title_correo.setOpaque(true);
+		 title_correo.setLocation(150,100);
+		 title_correo.setBackground(Color.white);
+		 title_correo.setFont(new Font("Arial",Font.BOLD,13));
+		 title_correo.setHorizontalAlignment(JLabel.CENTER);
+		 cont_pass.add(title_correo);
+		 
+		 JTextField field_correo = new JTextField();
+		 field_correo.setSize(300,30);
+		 field_correo.setLocation(150,190);
+		 field_correo.setFont(new Font("Arial",Font.BOLD,15));
+		 cont_pass.add(field_correo);
+		 
+		 JButton boton_enviar = new JButton();
+		 boton_enviar.setText("Enviar");
+		 boton_enviar.setBackground(Color.black);
+		 boton_enviar.setForeground(Color.white);
+		 boton_enviar.setLocation(300, 280);
+		 boton_enviar.setSize(150,50);
+		 boton_enviar.setFont(new Font("Arial",Font.BOLD,18));
+		 boton_enviar.setFocusPainted(false);		 
+		 cont_pass.add(boton_enviar);
+		 
+		 JButton boton_volver = new JButton();
+		 boton_volver.setText("volver");
+		 boton_volver.setBackground(Color.black);
+		 boton_volver.setForeground(Color.white);
+		 boton_volver.setLocation(150, 280);
+		 boton_volver.setSize(150,50);
+		 boton_volver.setFont(new Font("Arial",Font.BOLD,18));
+		 boton_volver.setFocusPainted(false);
+		 boton_volver.addActionListener(e ->{
+			 this.router("login");
+		 });
+		 cont_pass.add(boton_volver);
+		 
+		 //Comandos para asegurar que todos los componentes se generan correctamente
+		 cont_pass.repaint();
+		 cont_pass.revalidate();
+		 
 	}
 	
 	public void alta() {
@@ -485,14 +545,130 @@ public class Ventana extends JFrame{
 		 
 		 //Creacion de etiquetas y campos para el login
 		 JLabel title_alta = new JLabel();
-		 title_alta.setText("Alta");
-		 title_alta.setSize(400,400);
+		 title_alta.setText("Alta Usuario");
+		 title_alta.setSize(300,30);
 		 title_alta.setOpaque(true);
-		 title_alta.setLocation(350,200);
-		 title_alta.setBackground(Color.decode("#FAFAFA"));
+		 title_alta.setLocation(350,50);
+		 title_alta.setBackground(Color.white);
 		 title_alta.setFont(new Font("Arial",Font.BOLD,20));
 		 title_alta.setHorizontalAlignment(JLabel.CENTER);
 		 alta.add(title_alta);
+		 
+		 JPanel panel_datos = new JPanel();
+		 panel_datos.setOpaque(true);
+		 panel_datos.setBackground(Color.decode("#DBD5D5"));
+		 panel_datos.setSize(600,300);
+		 panel_datos.setLayout(new GridLayout(5, 2, 0, 0));
+		 panel_datos.setLocation(200,100);
+		 panel_datos.setVisible(true);
+		 alta.add(panel_datos);
+		 
+		 JLabel lab_id = new JLabel();
+		 lab_id.setSize(100,75);
+		 lab_id.setText("No. Control: ");
+		 lab_id.setFont(new Font("Arial",Font.BOLD,15));
+		 lab_id.setBackground(Color.black);
+		 lab_id.setForeground(Color.white);
+		 lab_id.setHorizontalAlignment(JLabel.CENTER);
+		 lab_id.setOpaque(true);
+		 panel_datos.add(lab_id);
+		 
+		 JTextField field_id = new JTextField();
+		 field_id.setSize(300,30);
+		 field_id.setLocation(150,220);
+		 field_id.setFont(new Font("Arial",Font.BOLD,15));
+		 panel_datos.add(field_id);
+		 
+		 JLabel lab_nombre = new JLabel();
+		 lab_nombre.setSize(100,75);
+		 lab_nombre.setText("Nombre(s): ");
+		 lab_nombre.setFont(new Font("Arial",Font.BOLD,15));
+		 lab_nombre.setBackground(Color.black);
+		 lab_nombre.setForeground(Color.white);
+		 lab_nombre.setHorizontalAlignment(JLabel.CENTER);
+		 lab_nombre.setOpaque(true);
+		 panel_datos.add(lab_nombre);
+		 
+		 JTextField field_nombre = new JTextField();
+		 field_nombre.setSize(300,30);
+		 field_nombre.setLocation(150,220);
+		 field_nombre.setFont(new Font("Arial",Font.BOLD,15));
+		 panel_datos.add(field_nombre);
+		 
+		 JLabel lab_apellido = new JLabel();
+		 lab_apellido.setSize(100,75);
+		 lab_apellido.setText("Apellido(s): ");
+		 lab_apellido.setFont(new Font("Arial",Font.BOLD,15));
+		 lab_apellido.setBackground(Color.black);
+		 lab_apellido.setForeground(Color.white);
+		 lab_apellido.setHorizontalAlignment(JLabel.CENTER);
+		 lab_apellido.setOpaque(true);
+		 panel_datos.add(lab_apellido);
+		 
+		 JTextField field_apellido = new JTextField();
+		 field_apellido.setSize(300,30);
+		 field_apellido.setLocation(150,220);
+		 field_apellido.setFont(new Font("Arial",Font.BOLD,15));
+		 panel_datos.add(field_apellido);
+		 
+		 JLabel lab_semestre = new JLabel();
+		 lab_semestre.setSize(100,75);
+		 lab_semestre.setText("Semestre: ");
+		 lab_semestre.setFont(new Font("Arial",Font.BOLD,15));
+		 lab_semestre.setBackground(Color.black);
+		 lab_semestre.setForeground(Color.white);
+		 lab_semestre.setHorizontalAlignment(JLabel.CENTER);
+		 lab_semestre.setOpaque(true);
+		 panel_datos.add(lab_semestre);
+		 
+		 JTextField field_semestre = new JTextField();
+		 field_semestre.setSize(300,30);
+		 field_semestre.setLocation(150,220);
+		 field_semestre.setFont(new Font("Arial",Font.BOLD,15));
+		 panel_datos.add(field_semestre);
+		 
+		 JLabel lab_prommedio = new JLabel();
+		 lab_prommedio.setSize(100,75);
+		 lab_prommedio.setText("Promedio: ");
+		 lab_prommedio.setFont(new Font("Arial",Font.BOLD,15));
+		 lab_prommedio.setBackground(Color.black);
+		 lab_prommedio.setForeground(Color.white);
+		 lab_prommedio.setHorizontalAlignment(JLabel.CENTER);
+		 lab_prommedio.setOpaque(true);
+		 panel_datos.add(lab_prommedio);
+		 
+		 JTextField field_prommedio = new JTextField();
+		 field_prommedio.setSize(300,30);
+		 field_prommedio.setLocation(150,220);
+		 field_prommedio.setFont(new Font("Arial",Font.BOLD,15));
+		 panel_datos.add(field_prommedio);
+		 
+		 JButton boton_alta = new JButton();
+		 boton_alta.setText("Alta");
+		 boton_alta.setBackground(Color.black);
+		 boton_alta.setForeground(Color.white);
+		 boton_alta.setLocation(350, 480);
+		 boton_alta.setSize(150,50);
+		 boton_alta.setFont(new Font("Arial",Font.BOLD,18));
+		 boton_alta.setFocusPainted(false);		 
+		 alta.add(boton_alta);
+		 
+		 JButton boton_volver = new JButton();
+		 boton_volver.setText("volver");
+		 boton_volver.setBackground(Color.black);
+		 boton_volver.setForeground(Color.white);
+		 boton_volver.setLocation(200, 480);
+		 boton_volver.setSize(150,50);
+		 boton_volver.setFont(new Font("Arial",Font.BOLD,18));
+		 boton_volver.setFocusPainted(false);
+		 boton_volver.addActionListener(e ->{
+			 this.router("login");
+		 });
+		 alta.add(boton_volver);
+		 
+		 //Comandos para asegurar que todos los componentes se generan correctamente
+		 alta.repaint();
+		 alta.revalidate();
 	}
 	
 	public void baja() {
@@ -508,14 +684,100 @@ public class Ventana extends JFrame{
 		 
 		 //Creacion de etiquetas y campos para el login
 		 JLabel title_baja = new JLabel();
-		 title_baja .setText("Baja");
-		 title_baja .setSize(400,400);
-		 title_baja .setOpaque(true);
-		 title_baja .setLocation(350,200);
-		 title_baja .setBackground(Color.decode("#FAFAFA"));
-		 title_baja .setFont(new Font("Arial",Font.BOLD,20));
-		 title_baja .setHorizontalAlignment(JLabel.CENTER);
+		 title_baja.setText("Baja Usuario");
+		 title_baja.setSize(300,30);
+		 title_baja.setOpaque(true);
+		 title_baja.setLocation(350,50);
+		 title_baja.setBackground(Color.decode("#FAFAFA"));
+		 title_baja.setFont(new Font("Arial",Font.BOLD,20));
+		 title_baja.setHorizontalAlignment(JLabel.CENTER);
 		 baja.add(title_baja);
+		 
+		 JPanel panel_datos = new JPanel();
+		 panel_datos.setOpaque(true);
+		 panel_datos.setBackground(Color.decode("#DBD5D5"));
+		 panel_datos.setSize(600,300);
+		 panel_datos.setLayout(new GridLayout(3, 2, 0, 0));
+		 panel_datos.setLocation(200,100);
+		 panel_datos.setVisible(true);
+		 baja.add(panel_datos);
+		 
+		 JLabel lab_id = new JLabel();
+		 lab_id.setSize(100,75);
+		 lab_id.setText("No. Control: ");
+		 lab_id.setFont(new Font("Arial",Font.BOLD,15));
+		 lab_id.setBackground(Color.black);
+		 lab_id.setForeground(Color.white);
+		 lab_id.setHorizontalAlignment(JLabel.CENTER);
+		 lab_id.setOpaque(true);
+		 panel_datos.add(lab_id);
+		 
+		 JTextField field_id = new JTextField();
+		 field_id.setSize(300,30);
+		 field_id.setLocation(150,220);
+		 field_id.setFont(new Font("Arial",Font.BOLD,15));
+		 panel_datos.add(field_id);
+		 
+		 JLabel lab_nombre = new JLabel();
+		 lab_nombre.setSize(100,75);
+		 lab_nombre.setText("Nombre(s): ");
+		 lab_nombre.setFont(new Font("Arial",Font.BOLD,15));
+		 lab_nombre.setBackground(Color.black);
+		 lab_nombre.setForeground(Color.white);
+		 lab_nombre.setHorizontalAlignment(JLabel.CENTER);
+		 lab_nombre.setOpaque(true);
+		 panel_datos.add(lab_nombre);
+		 
+		 JTextField field_nombre = new JTextField();
+		 field_nombre.setSize(300,30);
+		 field_nombre.setLocation(150,220);
+		 field_nombre.setFont(new Font("Arial",Font.BOLD,15));
+		 panel_datos.add(field_nombre);
+		 
+		 JLabel lab_apellido = new JLabel();
+		 lab_apellido.setSize(100,75);
+		 lab_apellido.setText("Apellido(s): ");
+		 lab_apellido.setFont(new Font("Arial",Font.BOLD,15));
+		 lab_apellido.setBackground(Color.black);
+		 lab_apellido.setForeground(Color.white);
+		 lab_apellido.setHorizontalAlignment(JLabel.CENTER);
+		 lab_apellido.setOpaque(true);
+		 panel_datos.add(lab_apellido);
+		 
+		 JTextField field_apellido = new JTextField();
+		 field_apellido.setSize(300,30);
+		 field_apellido.setLocation(150,220);
+		 field_apellido.setFont(new Font("Arial",Font.BOLD,15));
+		 panel_datos.add(field_apellido);
+		 
+		 JButton boton_baja = new JButton();
+		 boton_baja.setText("Baja");
+		 boton_baja.setBackground(Color.black);
+		 boton_baja.setForeground(Color.white);
+		 boton_baja.setLocation(350, 480);
+		 boton_baja.setSize(150,50);
+		 boton_baja.setFont(new Font("Arial",Font.BOLD,18));
+		 boton_baja.setFocusPainted(false);		 
+		 baja.add(boton_baja);
+		 
+		 JButton boton_volver = new JButton();
+		 boton_volver.setText("volver");
+		 boton_volver.setBackground(Color.black);
+		 boton_volver.setForeground(Color.white);
+		 boton_volver.setLocation(200, 480);
+		 boton_volver.setSize(150,50);
+		 boton_volver.setFont(new Font("Arial",Font.BOLD,18));
+		 boton_volver.setFocusPainted(false);
+		 boton_volver.addActionListener(e ->{
+			 this.router("login");
+		 });
+		 baja.add(boton_volver);
+		 
+		 //Comandos para asegurar que todos los componentes se generan correctamente
+		 baja.repaint();
+		 baja.revalidate();
+		 
+
 	}
 	
 	public void consult() {
@@ -523,23 +785,85 @@ public class Ventana extends JFrame{
 		 JPanel consult = new JPanel();
 		 consult.setOpaque(true);
 		 consult.setBackground(Color.white);
-		 consult.setSize(1000,600);
+		 consult.setSize(900,500);
 		 consult.setLayout(null);
-		 consult.setLocation(100,100);
+		 consult.setLocation(150,100);
 		 consult.setVisible(true);
 		 this.add(consult);
 		 
 		 //Creacion de etiquetas y campos para el login
 		 JLabel title_consult = new JLabel();
-		 title_consult.setText("Recuperar contraseña");
-		 title_consult.setSize(400,400);
+		 title_consult.setText("Consultar Usuario");
+		 title_consult.setSize(300,30);
 		 title_consult.setOpaque(true);
-		 title_consult.setLocation(350,200);
-		 title_consult.setBackground(Color.decode("#FAFAFA"));
+		 title_consult.setLocation(300,50);
+		 title_consult.setBackground(Color.white);
 		 title_consult.setFont(new Font("Arial",Font.BOLD,20));
 		 title_consult.setHorizontalAlignment(JLabel.CENTER);
 		 //title_username.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
 		 consult.add(title_consult);
+		 
+			JButton export = new JButton("Exportar");
+			export.setBounds(30,120,100,40);
+			export.setBackground(Color.black);
+			export.setForeground(Color.white);
+			consult.add(export);
+			
+			JButton add = new JButton("Añadir");
+			add.setBounds(130,120,100,40);
+			add.setBackground(Color.black);
+			add.setForeground(Color.white);
+			consult.add(add);
+		 
+		//Creacion de un arreglo de opciones  para los apartados de una tabla
+			Object [] table_head = {"No. control","Nombre","Apellidos","Semestre","Promedio","Acciones"};
+			//Creacion de una matriz para los datos de una tabla 
+			Object [][] table_content = {
+					{"No. control","Nombre","Apellidos","Semestre","Promedio","Acciones"},
+					{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+					{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+					{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+					{"20040331", "Mariana", "Hernández Díaz", "8", "92.4", "Editar"},
+					{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+					{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+					{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+					{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+					{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+					{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+					{"20040331", "Mariana", "Hernández Díaz", "8", "92.4", "Editar"},
+					{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+					{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+					{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+					{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+					{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+					{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+					{"20040331", "Mariana", "Hernández Díaz", "8", "92.4", "Editar"},
+					{"22040150", "Alejandro", "García Pérez", "4", "88.5", "Editar"},
+					{"23040012", "Sofía", "Martínez Ruiz", "2", "95.0", "Editar"},
+					{"21040890", "Carlos", "López Castro", "6", "78.2", "Editar"},
+					{"20040331", "Mariana", "Hernández Díaz", "8", "92.4", "Editar"}
+			};
+			
+			//Creacion de la tabla para usuario con datos, campos y una scrollBar para navegacion
+			JTable users_table = new JTable(table_content,table_head);
+			JScrollPane scrollPane = new JScrollPane(users_table);
+			scrollPane.setLocation(30, 180);
+			scrollPane.setSize(800,200);
+			
+			consult.add(scrollPane);
+			
+			JButton boton_volver = new JButton();
+			 boton_volver.setText("volver");
+			 boton_volver.setBackground(Color.black);
+			 boton_volver.setForeground(Color.white);
+			 boton_volver.setLocation(30, 400);
+			 boton_volver.setSize(150,50);
+			 boton_volver.setFont(new Font("Arial",Font.BOLD,18));
+			 boton_volver.setFocusPainted(false);
+			 boton_volver.addActionListener(e ->{
+				 this.router("login");
+			 });
+			 consult.add(boton_volver);
 	}
 	
 	public void how_create() {
@@ -555,15 +879,67 @@ public class Ventana extends JFrame{
 		 
 		 //Creacion de etiquetas y campos para el login
 		 JLabel title_create = new JLabel();
-		 title_create.setText("¿Cómo crear un usuario?");
-		 title_create.setSize(400,400);
+		 title_create.setText("Crear Usuario");
+		 title_create.setSize(300,30);
 		 title_create.setOpaque(true);
-		 title_create.setLocation(350,200);
+		 title_create.setLocation(350,50);
 		 title_create.setBackground(Color.decode("#FAFAFA"));
 		 title_create.setFont(new Font("Arial",Font.BOLD,20));
 		 title_create.setHorizontalAlignment(JLabel.CENTER);
 		 //title_username.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
 		 cont_create.add(title_create);
+		 
+		 JPanel cont_texto = new JPanel();
+		 cont_texto.setOpaque(true);
+		 cont_texto.setBackground(Color.white);
+		 cont_texto.setSize(600,300);
+		 cont_texto.setLayout(null);
+		 cont_texto.setLocation(200,100);
+		 cont_texto.setBackground(Color.decode("#FAF5F5"));
+		 cont_texto.setVisible(true);
+		 cont_create.add(cont_texto);
+		 
+		 JTextArea text = new JTextArea();
+		 text.setBounds(0,0,600,300);
+		 text.setFont(new Font("Arial",Font.BOLD,12));
+		 text.setText("Para crear un usuario se debe iniciar la aplicacion y hacer click en el botón de REGISTRARSE."
+		 		+ "\n"
+		 		+ "\nUna vez dentro del menu es necesario rellenar todos los campos solicitados en el menú."
+		 		+ "\n"
+		 		+ "\nUna vez rellenados los datos se debe hacer click en el botón de Crear cuenta."
+		 		+ "\n"
+		 		+ "\nNombre de usuario --> Nombre corto con el cual se identificara dentro del sistema."
+		 		+ "\n"
+		 		+ "\nBiografia --> Descripción del usuario con datos que se desean compartir publicamente"
+		 		+ "\n"
+		 		+ "\nCorreo Electronico--> Direccion de correo electronico asociado a la cuenta para recuperacion.."
+		 		+ "\n"
+		 		+ "\nPreferencias --> Seleccionar los datos preferentes para compartir publicamente."
+		 		+ "\n"
+		 		+ "\nTerminos y Condiciones --> Leer los TyC y aceptarlos en caso de estar de acuerdo o rechazarlos al no estar de acuerdo."
+		 		+ "\n"
+		 		+ "\nElija su localidad --> Elegir localidad la cual se mantendra privada."
+		 		+ "\n"
+		 		+ "\nEn caso de rellenar todos los campos de manera correcta se creara el usuario junto a las credenciales."
+		 		+ "\n"
+		 		+ "\nEn caso de que algun dato no cumpla con las caracteristicas necesarias el campo se marcara de rojo."
+		 		+ "\n"
+		 		+ "\nUna vez creado el usuario volvera a la pantalla de inicio de sesión y podra acceder al sistema con el usuario registrado");
+		 text.setEditable(true);
+		 cont_texto.add(text);
+		 
+			JButton boton_volver = new JButton();
+			 boton_volver.setText("volver");
+			 boton_volver.setBackground(Color.black);
+			 boton_volver.setForeground(Color.white);
+			 boton_volver.setLocation(200, 450);
+			 boton_volver.setSize(150,50);
+			 boton_volver.setFont(new Font("Arial",Font.BOLD,18));
+			 boton_volver.setFocusPainted(false);
+			 boton_volver.addActionListener(e ->{
+				 this.router("login");
+			 });
+			 cont_create.add(boton_volver);
 	}
 	
 	public void how_log() {
@@ -579,15 +955,61 @@ public class Ventana extends JFrame{
 		 
 		 //Creacion de etiquetas y campos para el login
 		 JLabel title_log = new JLabel();
-		 title_log.setText("¿Como acceder al sistema?");
-		 title_log.setSize(400,400);
+		 title_log.setText("Acceder al sistema");
+		 title_log.setSize(300,30);
 		 title_log.setOpaque(true);
-		 title_log.setLocation(350,200);
+		 title_log.setLocation(350,50);
 		 title_log.setBackground(Color.decode("#FAFAFA"));
 		 title_log.setFont(new Font("Arial",Font.BOLD,20));
 		 title_log.setHorizontalAlignment(JLabel.CENTER);
 		 //title_username.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
 		 cont_log.add(title_log);
+		 
+		 JPanel cont_texto = new JPanel();
+		 cont_texto.setOpaque(true);
+		 cont_texto.setBackground(Color.white);
+		 cont_texto.setSize(600,300);
+		 cont_texto.setLayout(null);
+		 cont_texto.setLocation(200,100);
+		 cont_texto.setBackground(Color.decode("#FAF5F5"));
+		 cont_texto.setVisible(true);
+		 cont_log.add(cont_texto);
+		 
+		 JTextArea text = new JTextArea();
+		 text.setBounds(0,0,600,300);
+		 text.setFont(new Font("Arial",Font.BOLD,12));
+		 text.setText("Para Acceder al sistema se debe contar con un usuario creado."
+		 		+ "\n"
+		 		+ "\nEn caso de no contar con uno consultar guia ¿Como crear un usuario?."
+		 		+ "\n"
+		 		+ "\nUna vez contamos con un usuario registrado en el sistema deberemos inciar la aplicación."
+		 		+ "\n"
+		 		+ "\nSe deberan rellenar los datos solicitados para poder iniciar sesion y acceder al sistema"
+		 		+ "\n"
+		 		+ "\nUsuario --> Nombre corto con el cual se identifica dentro del sistema y registrado al crear el usuario."
+		 		+ "\n"
+		 		+ "\nContraseña --> Contraseña registrada al crear al usuario"
+		 		+ "\n"
+		 		+ "\nEn caso de no contar con la contraseña puede hacer click en el apartado ¿Has olvidado tu cointraseña?."
+		 		+ "\n"
+		 		+ "\nEn caso de que el usuario lo quiera puede marcar la opcion Recordarme para no iniciar sesion la proxima vez que ingrese al sistema."
+		 		+ "\n"
+		 		+ "\nUna vez rellenados los campos correctamente hacer click en el botón Acceder y ya habra ingresado en el sistema.");
+		 text.setEditable(true);
+		 cont_texto.add(text);
+		 
+			JButton boton_volver = new JButton();
+			 boton_volver.setText("volver");
+			 boton_volver.setBackground(Color.black);
+			 boton_volver.setForeground(Color.white);
+			 boton_volver.setLocation(200, 450);
+			 boton_volver.setSize(150,50);
+			 boton_volver.setFont(new Font("Arial",Font.BOLD,18));
+			 boton_volver.setFocusPainted(false);
+			 boton_volver.addActionListener(e ->{
+				 this.router("login");
+			 });
+			 cont_log.add(boton_volver);
 	}
 	
 	public void how_recover() {
@@ -603,15 +1025,57 @@ public class Ventana extends JFrame{
 		 
 		 //Creacion de etiquetas y campos para el login
 		 JLabel title_recover = new JLabel();
-		 title_recover.setText("¿Que pasa si olvido mi contraseña?");
-		 title_recover.setSize(400,400);
+		 title_recover.setText("Recuperar Contraseña");
+		 title_recover.setSize(300,30);
 		 title_recover.setOpaque(true);
-		 title_recover.setLocation(350,200);
+		 title_recover.setLocation(350,50);
 		 title_recover.setBackground(Color.decode("#FAFAFA"));
 		 title_recover.setFont(new Font("Arial",Font.BOLD,20));
 		 title_recover.setHorizontalAlignment(JLabel.CENTER);
 		 //title_username.setBorder(BorderFactory.createLineBorder(Color.BLACK,1,true));
 		 cont_recover.add(title_recover);
+		 
+		 JPanel cont_texto = new JPanel();
+		 cont_texto.setOpaque(true);
+		 cont_texto.setBackground(Color.white);
+		 cont_texto.setSize(600,300);
+		 cont_texto.setLayout(null);
+		 cont_texto.setLocation(200,100);
+		 cont_texto.setBackground(Color.decode("#FAF5F5"));
+		 cont_texto.setVisible(true);
+		 cont_recover.add(cont_texto);
+		 
+		 JTextArea text = new JTextArea();
+		 text.setBounds(0,0,600,300);
+		 text.setFont(new Font("Arial",Font.BOLD,12));
+		 text.setText("En caso de olvidar su contraseña puede recuperarla facilmente. "
+		 		+ "\n"
+		 		+ "\nUna vez este en la pantalla de inicio de sesión debera hacer click en el boton:"
+		 		+ "\n"
+		 		+ "\n¿Has olvidado tu contraseña? Marcado de color azul en la parte inferior del inicio de sesión."
+		 		+ "\n"
+		 		+ "\nEl sistema le pedira como requisito el correo asociado a la cuenta."
+		 		+ "\n"
+		 		+ "\nUna vez rellenado el campo, hacer click en el boton Enviar."
+		 		+ "\n"
+		 		+ "\nLlegará un correo electronico al correo ingresado con las credenciales de la cuenta."
+		 		+ "\n"
+		 		+ "\nUna vez recuperada la contraseña debera volver al apartado de inicio de sesión.");
+		 text.setEditable(true);
+		 cont_texto.add(text);
+		 
+			JButton boton_volver = new JButton();
+			 boton_volver.setText("volver");
+			 boton_volver.setBackground(Color.black);
+			 boton_volver.setForeground(Color.white);
+			 boton_volver.setLocation(200, 450);
+			 boton_volver.setSize(150,50);
+			 boton_volver.setFont(new Font("Arial",Font.BOLD,18));
+			 boton_volver.setFocusPainted(false);
+			 boton_volver.addActionListener(e ->{
+				 this.router("login");
+			 });
+			 cont_recover.add(boton_volver);
 	}
 	public void menu() {
 		 //Creacion de barra de opciones y sus opciones dentro de la misma
@@ -1039,4 +1503,6 @@ public class Ventana extends JFrame{
         pane.setBackground(Color.decode("#B2EEFE"));
         this.add(pane);
 	}
+	
+	
 }
