@@ -54,7 +54,7 @@ public class Ventana extends JFrame{
 		 this.menu();
 		 
 		 //Invocacion de las diferentes pantallas.
-		 this.login();
+		 //this.login();
 		 this.setVisible(true);
 		
 	}

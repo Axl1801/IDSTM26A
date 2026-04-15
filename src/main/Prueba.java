@@ -2,7 +2,8 @@ package main;
 
 public class Prueba {
 	 public static void main(String[] args) {
-		 Ventana miVentana = new Ventana();
+		 //Ventana miVentana = new Ventana();
+		 VentanaTres Vent = new VentanaTres();
 	 }
 
 }
