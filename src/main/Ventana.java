@@ -1077,6 +1077,7 @@ public class Ventana extends JFrame{
 			 });
 			 cont_recover.add(boton_volver);
 	}
+	
 	public void menu() {
 		 //Creacion de barra de opciones y sus opciones dentro de la misma
 		 JMenuBar barra = new JMenuBar();

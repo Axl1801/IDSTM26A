@@ -38,7 +38,6 @@ public class Calculadora extends JFrame{
 		JPanel contenedor = new JPanel();
 		 contenedor.setSize(400,500);
 		 contenedor.setLocation(0,0);
-		 contenedor.setLayout(null);
 		 contenedor.setBackground(Color.BLACK);
 		 contenedor.setOpaque(true);
 		 contenedor.setLayout(null);
