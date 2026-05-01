@@ -52,13 +52,8 @@ public class Ventana extends JFrame{
 		 this.setIconImage(icon.getImage());
 		 
 		 //Invocacion de las diferentes pantallas.
-		 //this.login();
 		 this.setVisible(true);
 		
-	}
-	
-	public void registro() {
-		 
 	}
 	
 	public void users() {
@@ -839,9 +834,6 @@ public class Ventana extends JFrame{
 		
 		if(target.equals("login")) {
 			//this.login();
-		}
-		else if(target.equals("registro")) {
-			this.registro();
 		}
 		else if(target.equals("password_recovery")) {
 			this.password_recovery();

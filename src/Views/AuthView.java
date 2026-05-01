@@ -21,8 +21,15 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import Controllers.HomeController;
+import Models.AuthModel;
+
 public class AuthView {
+	
+	private AuthModel model;
 	public AuthView() {
+		
+		model = new AuthModel();
 		
 	}
 	
@@ -131,23 +138,44 @@ public class AuthView {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
-				String username_val = username.getText();
-				String password_val = new String(password.getPassword());
-				String real_user = "Axel123";
-				String real_pass = "ExtrañoAMiEx123";
-				if(username_val.equals("") || username_val.contains(" ") || !username_val.equals(real_user) 
-						|| !password_val.equals(real_pass)) {
-					username.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
-					username.setBackground(Color.decode("#FFCFCF"));
+				String passText = new String(password.getPassword());
+				Boolean flag1 = false, flag2 = false;
+				
+				if(passText.equals("") ) {
 					password.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
 					password.setBackground(Color.decode("#FFCFCF"));
-					JOptionPane.showMessageDialog(null, "Datos Incorrectos, Porfavor Verifique sus datos o regisrtrese en el sistema");
+					JOptionPane.showMessageDialog(null, "Datos Incorrectos,"
+							+ " Porfavor Verifique sus datos o regisrtrese en el sistema");
+				}
+				else {
+					password.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
+					password.setBackground(Color.decode("#D1FFCF"));
+					flag1 = true;
+				}
+				
+				if(username.getText().equals("") ) {
+					username.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+					username.setBackground(Color.decode("#FFCFCF"));
+					JOptionPane.showMessageDialog(null, "Datos Incorrectos,"
+							+ " Porfavor Verifique sus datos o regisrtrese en el sistema");
 				}
 				else {
 					username.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
 					username.setBackground(Color.decode("#D1FFCF"));
-					password.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
-					password.setBackground(Color.decode("#D1FFCF"));
+					flag2 = true;
+				}
+				
+				if(flag1 && flag2) {
+					if(model.login(username.getText(), passText)){
+						JOptionPane.showMessageDialog(null, "Bienvenido.");
+						
+						ventana.dispose();
+						
+						HomeController hm = new HomeController();
+						hm.home();
+					}else {
+						JOptionPane.showMessageDialog(null, "Error al acceder","verifique su información",JOptionPane.WARNING_MESSAGE);
+					}
 				}
 			}});
 		 
