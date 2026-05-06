@@ -236,7 +236,7 @@ public class AuthView {
 		
 		//Contenedor registro
 		JPanel register_container = new JPanel();
-		register_container.setSize(500,500);
+		register_container.setSize(500,600);
 		register_container.setLocation(350, 100);
 		register_container.setOpaque(true);
 		register_container.setBackground(Color.decode("#FFFFFF"));
@@ -253,7 +253,7 @@ public class AuthView {
 		 bio_tag.setForeground(Color.white);
 		 register_container.add(bio_tag);
 		 
-		 JLabel reg_user = new JLabel("Nombre de usuario");
+		 JLabel reg_user = new JLabel("Nombre Completo");
 		 reg_user.setBounds(0, 45, 500, 70);
 		 reg_user.setHorizontalAlignment(JLabel.CENTER);
 		 reg_user.setFont(new Font("Arial",Font.BOLD, 15));
@@ -288,28 +288,40 @@ public class AuthView {
 		 reg_correo.setFont(new Font("Arial",Font.BOLD,15));
 		 register_container.add(reg_correo);
 		 
+		 JLabel tag_contraseña = new JLabel("Contraseña");
+		 tag_contraseña.setBounds(0, 260, 500, 30);
+		 tag_contraseña.setHorizontalAlignment(JLabel.CENTER);
+		 tag_contraseña.setFont(new Font("Arial",Font.BOLD, 15));
+		 register_container.add(tag_contraseña);
+		 
+		 JTextField reg_contraseña = new JTextField();
+		 reg_contraseña.setSize(300,30);
+		 reg_contraseña.setLocation(100,285);
+		 reg_contraseña.setFont(new Font("Arial",Font.BOLD,15));
+		 register_container.add(reg_contraseña);
+		 
 		 JLabel reg_pref = new JLabel("Preferencias");
-		 reg_pref.setBounds(0, 260, 500, 30);
+		 reg_pref.setBounds(0, 310, 500, 30);
 		 reg_pref.setHorizontalAlignment(JLabel.CENTER);
 		 reg_pref.setFont(new Font("Arial",Font.BOLD, 15));
 		 register_container.add(reg_pref);
 		 
 		 //Creacion de los botones de marcado para la seleccion del usuario
 		 JCheckBox sweet_option = new JCheckBox("Dulce");
-		 sweet_option.setBounds(100,285,100,40);
+		 sweet_option.setBounds(100,345,100,40);
 		 register_container.add(sweet_option);
 		
 		 
 		 JCheckBox salty_option = new JCheckBox("Salado");
-		 salty_option.setBounds(200,285,100,40);
+		 salty_option.setBounds(200,345,100,40);
 		 register_container.add(salty_option);
 		 
 		 JCheckBox healthy_option = new JCheckBox("Saludable");
-		 healthy_option.setBounds(300,285,100,40);
+		 healthy_option.setBounds(300,345,100,40);
 		 register_container.add(healthy_option);
 		 
 		 JLabel reg_terms = new JLabel("TERMINOS Y CONDICIONES");
-		 reg_terms.setBounds(100, 330, 300, 30);
+		 reg_terms.setBounds(100, 390, 300, 30);
 		 reg_terms.setBackground(Color.black);
 		 reg_terms.setOpaque(true);
 		 reg_terms.setForeground(Color.white);
@@ -320,11 +332,11 @@ public class AuthView {
 		 
 		 //Cracion de botones para la seleccion del usuario (De tipo RadioButton)
 		 JRadioButton acceptance_terms = new JRadioButton("Acepto los terminos");
-		 acceptance_terms.setBounds(100, 365, 150,30);
+		 acceptance_terms.setBounds(100, 418, 150,30);
 		 register_container.add(acceptance_terms);
 		 
 		 JRadioButton reject_terms = new JRadioButton("Rechazo los terminos");
-		 reject_terms.setBounds(250, 365, 150, 30);
+		 reject_terms.setBounds(250, 418, 150, 30);
 		 register_container.add(reject_terms);
 		 
 		 //Creacion de un Grupo de botones para que el usuario pueda seleccionar unicamente una opcion de los RadioButton
@@ -335,13 +347,13 @@ public class AuthView {
 		 //Creacion de un arreglo para introducir cada copcion dentro de un ComboBox
 		 String[] colonias = {"Elija su localidad", "Camino York", "La fuente", "villas del encanto", "Cihuatan"};
 		 JComboBox list = new JComboBox(colonias);
-		 list.setBounds(120, 400, 250, 30);
+		 list.setBounds(120, 450, 250, 30);
 		 register_container.add(list);
 		 
 		 //Boton de crear
 		 JButton reg_crear = new JButton();
 		 reg_crear.setText("Crear cuenta");
-		 reg_crear.setLocation(100, 435);
+		 reg_crear.setLocation(100, 500);
 		 reg_crear.setSize(150,50);
 		 reg_crear.setFont(new Font("Arial",Font.BOLD,18));
 		 register_container.add(reg_crear);
@@ -353,9 +365,10 @@ public class AuthView {
 					// TODO Auto-generated method stub
 					String username_val = reg_username.getText();
 					String desc_val = bio_text.getText();
+					String password_val = reg_contraseña.getText();
 					boolean valid = true;
 					//REGISTRO DE USUARIO
-					if(username_val.equals("") || username_val.contains(" ") ) {
+					if(username_val.equals("")) {
 						reg_username.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
 						reg_username.setBackground(Color.decode("#FFCFCF"));
 						valid = false;
@@ -371,6 +384,15 @@ public class AuthView {
 					}else {
 						bio_text.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
 						bio_text.setBackground(Color.decode("#D1FFCF"));
+					}
+					//CONTRASEÑA
+					if(password_val.equals("") || password_val.contains(" ")) {
+						reg_contraseña.setBorder(BorderFactory.createLineBorder(Color.red,2,true));
+						reg_contraseña.setBackground(Color.decode("#FFCFCF"));
+						valid = false;
+					}else {
+						reg_contraseña.setBorder(BorderFactory.createLineBorder(Color.green,2,true));
+						reg_contraseña.setBackground(Color.decode("#D1FFCF"));
 					}
 					//OPCIONES DE PREFERENCIA
 					if(!healthy_option.isSelected() && !salty_option.isSelected() && !sweet_option.isSelected()) {
@@ -401,14 +423,23 @@ public class AuthView {
 					}
 					
 					//MOSTRAR VENTANA DE ERROR
-					if(!valid) {
-						JOptionPane.showMessageDialog(null,"Error, llene correctamente los datos o vuelva a intentarlo");
+					if(valid) {
+						if(model.registro(username_val, password_val,reg_correo.getText())){
+							JOptionPane.showMessageDialog(null, "Registro Exitoso");
+							
+							ventana.dispose();
+							
+							HomeController hm = new HomeController();
+							hm.home();
+						}else {
+							JOptionPane.showMessageDialog(null, "Error al acceder","verifique su información",JOptionPane.WARNING_MESSAGE);
+						}
 					}
 					
 				}});
 		 //Boton para volver al login
 		 JButton login_back = new JButton("¿Ya tienes cuenta?");
-		 login_back.setLocation(250, 435);
+		 login_back.setLocation(250, 500);
 		 login_back.setSize(150,50);
 		 login_back.setFont(new Font("Arial",Font.BOLD,13));
 		 login_back.setFocusPainted(false);		 
