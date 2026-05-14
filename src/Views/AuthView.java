@@ -345,7 +345,7 @@ public class AuthView {
 		 terms.add(acceptance_terms);
 		 
 		 //Creacion de un arreglo para introducir cada copcion dentro de un ComboBox
-		 String[] colonias = {"Elija su localidad", "Camino York", "La fuente", "villas del encanto", "Cihuatan"};
+		 String[] colonias = {"TODOS", "Modelo Reciente", "Precio", "Orden Alfabetico"};
 		 JComboBox list = new JComboBox(colonias);
 		 list.setBounds(120, 450, 250, 30);
 		 register_container.add(list);
