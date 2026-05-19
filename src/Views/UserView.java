@@ -15,9 +15,11 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import Controllers.UserController;
 import Models.User;
 
 public class UserView {
+	User uc = new User();
 	public UserView(){
 		
 	}
@@ -60,29 +62,24 @@ public class UserView {
 		add.setBounds(130,120,100,40);
 		users.add(add);
 		
-		//Creacion de un arreglo de opciones  para los apartados de una tabla
 		Object [] table_head = {"ID","Nombre","Apellidos","Correo","Telefono","Acciones"};
-		//Creacion de una matriz para los datos de una tablaw
+
 		DefaultTableModel model = new DefaultTableModel(table_head,0);
-		
-		for(User user : data_users) {
-		     Object[] row = { user.getId(), user.getName(), user.getLastname(), user.getEmail(), user.getPhone() };
-		     model.addRow(row); 
-		}
-		
-		//Creacion de la tabla para usuario con datos, campos y una scrollBar para navegacion
+
 		JTable users_table = new JTable(model);
+
 		JScrollPane scrollPane = new JScrollPane(users_table);
+
 		scrollPane.setLocation(30, 180);
 		scrollPane.setSize(800,200);
-		users_table.setBorder(BorderFactory.createLineBorder(Color.black));
+
 		users.add(scrollPane);
+
+		CargarTabla(model);
 		
 		add.addActionListener(e->{
 			RegisterView();
 		});
-		
-		CargarTabla(model,data_users);
 		
 		ventana.setVisible(true);
 	}
@@ -175,7 +172,10 @@ public class UserView {
 
 	}
 
-	public void CargarTabla(DefaultTableModel users,ArrayList<User> data_users) {
+	public void CargarTabla(DefaultTableModel users) {
+		ArrayList<User> data_users = uc.get();
+		
+		//Pedir
 		users.setRowCount(0);
 		for(User user : data_users) {
 		     Object[] row = { user.getId(), user.getName(), user.getLastname(), user.getEmail(), user.getPhone() };

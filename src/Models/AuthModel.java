@@ -17,7 +17,7 @@ public class AuthModel {
 	public boolean login(String user,String password) {
 		
 		
-		String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+		String query = "SELECT * FROM users WHERE name = ? AND password = ?";
 		
 		System.out.println(query);
 		
@@ -28,9 +28,9 @@ public class AuthModel {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 		    conn = DriverManager.getConnection(
-		        "jdbc:mysql://127.0.0.1:3306/P3",
-		        "root",
-		        ""
+				"jdbc:mysql://sql.freedb.tech:3306/freedb_FwTcWRQK",
+				"u_Zn8DwG",
+				"EaB5UTrE4VIL"
 		    );
 
 		    PreparedStatement ps = conn.prepareStatement(query);
@@ -73,9 +73,9 @@ public class AuthModel {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 		    conn = DriverManager.getConnection(
-		        "jdbc:mysql://127.0.0.1:3306/BDP3",
-		        "root",
-		        "180105"
+				"jdbc:mysql://sql.freedb.tech:3306/freedb_FwTcWRQK",
+				"u_Zn8DwG",
+				"EaB5UTrE4VIL"
 		    );
 
 		    PreparedStatement ps = conn.prepareStatement(query);

@@ -37,9 +37,9 @@ public class User {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			conn = DriverManager.getConnection(
-				"jdbc:mysql://127.0.0.1:3306/application_db",
-				"root",
-				""
+				"jdbc:mysql://sql.freedb.tech:3306/freedb_FwTcWRQK",
+				"u_Zn8DwG",
+				"EaB5UTrE4VIL"
 			);
 			
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -84,9 +84,9 @@ public class User {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			conn = DriverManager.getConnection(
-				"jdbc:mysql://127.0.0.1:3306/application_db",
-				"root",
-				"root"
+				"jdbc:mysql://sql.freedb.tech:3306/freedb_FwTcWRQK",
+				"u_Zn8DwG",
+				"EaB5UTrE4VIL"
 			);
 			
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -127,9 +127,9 @@ public class User {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			conn = DriverManager.getConnection(
-				"jdbc:mysql://127.0.0.1:3306/application_db",
-				"root",
-				""
+				"jdbc:mysql://sql.freedb.tech:3306/freedb_FwTcWRQK",
+				"u_Zn8DwG",
+				"EaB5UTrE4VIL"
 			);
 			
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -169,9 +169,9 @@ public class User {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			conn = DriverManager.getConnection(
-				"jdbc:mysql://127.0.0.1:3306/application_db",
-				"root",
-				"root"
+				"jdbc:mysql://sql.freedb.tech:3306/freedb_FwTcWRQK",
+				"u_Zn8DwG",
+				"EaB5UTrE4VIL"
 			);
 			
 			PreparedStatement ps = conn.prepareStatement(query);
