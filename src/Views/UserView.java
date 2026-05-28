@@ -20,6 +20,8 @@ import Models.User;
 
 public class UserView {
 	User uc = new User();
+	DefaultTableModel model;
+	JTable users_table;
 	public UserView(){
 		
 	}
@@ -64,9 +66,9 @@ public class UserView {
 		
 		Object [] table_head = {"ID","Nombre","Apellidos","Correo","Telefono","Acciones"};
 
-		DefaultTableModel model = new DefaultTableModel(table_head,0);
+		model = new DefaultTableModel(table_head,0);
 
-		JTable users_table = new JTable(model);
+		users_table = new JTable(model);
 
 		JScrollPane scrollPane = new JScrollPane(users_table);
 
@@ -75,7 +77,7 @@ public class UserView {
 
 		users.add(scrollPane);
 
-		CargarTabla(model);
+		CargarTabla(data_users);
 		
 		add.addActionListener(e->{
 			RegisterView();
@@ -86,7 +88,6 @@ public class UserView {
 	
 	public void RegisterView() {
 		JFrame ventana = new JFrame();
-		
 		ventana.setSize(1000, 640);
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ventana.setLocationRelativeTo(null);
@@ -159,11 +160,12 @@ public class UserView {
 			ventana.dispose();
 		});
 		
-		guardar.addActionListener(e->{
-			User newUser = new User(02,campo_Nombre.getText(),campo_Email.getText(),campo_password.getText(),campo_lastname.getText(),campo_phone.getText());
-			newUser.create(newUser);
-			
-			ventana.dispose();
+		guardar.addActionListener(e -> {
+		    User newUser = new User(02, campo_Nombre.getText(), campo_Email.getText(), 
+		                           campo_password.getText(), campo_lastname.getText(), campo_phone.getText());
+		    newUser.create(newUser);
+		    ventana.dispose();
+		    CargarTabla(uc.get()); // refresca la tabla con los datos actualizados
 		});
 		
 		
@@ -171,15 +173,14 @@ public class UserView {
 		
 
 	}
-
-	public void CargarTabla(DefaultTableModel users) {
-		ArrayList<User> data_users = uc.get();
-		
-		//Pedir
-		users.setRowCount(0);
-		for(User user : data_users) {
-		     Object[] row = { user.getId(), user.getName(), user.getLastname(), user.getEmail(), user.getPhone() };
-		     users.addRow(row); 
-		}
+	
+	public void CargarTabla(ArrayList<User> data_users) {
+	    model.setRowCount(0);
+	    for (User user : data_users) {
+	        Object[] row = {user.getId(), user.getName(), user.getLastname(), user.getEmail(), user.getPhone()};
+	        model.addRow(row);
+	    }
+	    users_table.revalidate();
+	    users_table.repaint();
 	}
 }
